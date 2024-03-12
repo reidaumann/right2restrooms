@@ -1,7 +1,5 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Bathrooms</h1>
-
 <div id="bathrooms">
   <% @bathrooms.each do |bathroom| %>
     <%= render bathroom %>
@@ -11,4 +9,4 @@
   <% end %>
 </div>
 
-<%= link_to "New bathroom", new_bathroom_path %>
+<%= link_to "Add a new bathroom to our database!", new_bathroom_path %>
