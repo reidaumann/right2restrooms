@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :favorites
-  resources :reviews
 
   root "bathrooms#index"
+
   devise_for :users
+  
   resources :bathrooms
+  resources :favorites
+  resources :reviews
   # root "articles#index"
 end
