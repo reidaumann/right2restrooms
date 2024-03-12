@@ -3,11 +3,36 @@ html, body {
   padding: 0;
 }
 
-#header{
+#header h1{
   text-align: center;
   background-color: #76B223;
   color: white;
-  padding: 10px;
+  padding-top: 5px;
   margin: 0px;
-  font-family:Georgia, 'Times New Roman', Times, serif
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+#header p{
+  text-align: center;
+  background-color: #76B223;
+  color: white;
+  margin: 0px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+#add-link{
+  text-align: center;
+  padding: 10px;
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+#add-link a:visited {
+  color: #3B5912;
 }
