@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_12_185139) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_14_183355) do
   create_table "bathrooms", force: :cascade do |t|
     t.string "address"
     t.string "hours"
@@ -20,6 +20,9 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_12_185139) do
     t.boolean "purchase_required"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "user_id", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
