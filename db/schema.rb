@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_14_183355) do
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.integer "user_id", null: false
+    t.integer "user_id"
   end
 
   create_table "favorites", force: :cascade do |t|

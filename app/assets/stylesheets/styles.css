@@ -19,6 +19,7 @@ html, body {
   background-color: #76B223;
   color: white;
   margin: 0px;
+  padding-top: 10px;
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -35,4 +36,26 @@ html, body {
 
 #add-link a:visited {
   color: #3B5912;
+}
+
+#new-bath-form{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding: 30px;
+  line-height: 2.2;
+}
+
+#new-header-and-link{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+.btn{
+  background-color: #76B223;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 15px;
 }
