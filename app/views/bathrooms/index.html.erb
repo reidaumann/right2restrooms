@@ -2,15 +2,14 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
 </head>
-
 <body>
   <p style="color: green"><%= notice %></p>
 
   <div id='map' style='width: 400px; height: 300px;'></div>
 
   <script>
-    const api_key=ENV["MAPBOX_API_KEY"]
-    mapboxgl.accessToken = api_key
+    var api_key='<%=ENV["MAPBOX_API_KEY"]%>';
+    mapboxgl.accessToken = api_key;
       const map = new mapboxgl.Map({
           container: 'map', // container ID
             style: 'mapbox://styles/mapbox/streets-v12', // style URL
