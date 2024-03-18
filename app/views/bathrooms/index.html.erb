@@ -1,13 +1,33 @@
-<p style="color: green"><%= notice %></p>
-<div id="bathrooms">
-  <% @bathrooms.each do |bathroom| %>
-    <%= render bathroom %>
-    <p>
-      <%= link_to "Show this bathroom", bathroom %>
-    </p>
-  <% end %>
-</div>
+<head>
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+</head>
 
-<div id="add-link">
-<%= link_to "Add a new bathroom to our database", new_bathroom_path %>
-</div>
+<body>
+  <p style="color: green"><%= notice %></p>
+
+  <div id='map' style='width: 400px; height: 300px;'></div>
+  
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoicmF1bWFubiIsImEiOiJjbHRvdXVqenowMnE4MmlxdDJpNGc1Nno4In0.-a1vgywZsCuMdeWvYkSDKw';
+  const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [-74.5, 40], // starting position [lng, lat]
+    zoom: 9, // starting zoom
+  });
+  </script>
+
+  <div id="bathrooms">
+    <% @bathrooms.each do |bathroom| %>
+      <%= render bathroom %>
+      <p>
+        <%= link_to "Show this bathroom", bathroom %>
+      </p>
+    <% end %>
+  </div>
+
+  <div id="add-link">
+  <%= link_to "Add a new bathroom to our database", new_bathroom_path %>
+  </div>
+</body>
