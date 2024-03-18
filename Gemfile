@@ -78,6 +78,7 @@ gem "awesome_print"
 gem "devise"       # to be removed
 gem "dotenv-rails"
 gem "faker"
+gem "geocoder"
 gem "htmlbeautifier"
 gem "http"
 gem "sqlite3", "~> 1.4"
