@@ -2,7 +2,7 @@
 #
 # Table name: bathrooms
 #
-#  id                :integer          not null, primary key
+#  id                :bigint           not null, primary key
 #  accessible        :boolean
 #  address           :string
 #  family_accessible :boolean
@@ -16,4 +16,6 @@
 #  user_id           :integer
 #
 class Bathroom < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode
 end
