@@ -26,7 +26,8 @@
   background-color: #76B223;
   color: white;
   padding-top: 5px;
-  margin: 0px;
+  display: block;
+  margin: auto;
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
@@ -36,9 +37,17 @@
   text-align: center;
   background-color: #76B223;
   color: white;
-  margin: 0px;
+  display: block;
+  margin: auto;
   padding-top: 10px;
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
+}
+
+#header img{
+  float: left;
+  display: inline;
+  height: 80px;
+  width: 80px;
 }
