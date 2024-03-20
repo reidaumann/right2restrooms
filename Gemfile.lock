@@ -144,6 +144,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    geocoder (1.8.2)
     git (1.18.0)
       addressable (~> 2.8)
       rchardet (~> 1.8)
@@ -417,6 +418,7 @@ DEPENDENCIES
   draft_generators
   draft_matchers
   faker
+  geocoder
   grade_runner
   htmlbeautifier
   http
