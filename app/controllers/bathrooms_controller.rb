@@ -3,7 +3,9 @@ class BathroomsController < ApplicationController
 
   # GET /bathrooms or /bathrooms.json
   def index
-    @bathrooms = Bathroom.all
+    @bathrooms=Bathroom.all
+
+    @bathroom_coordinates = Bathroom.pluck(:longitude, :latitude)
   end
 
   # GET /bathrooms/1 or /bathrooms/1.json
