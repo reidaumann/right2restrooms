@@ -11,6 +11,14 @@
   color: #3B5912;
 }
 
+#address{
+  font-size: 20px;
+}
+#bathrooms-list{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding: 40px;
+}
 #new-bath-form{
   color: #3B5912;
   font-family: "Nunito", sans-serif;
@@ -25,6 +33,11 @@
   padding-left: 30px;
 }
 
+#bathrooms-list h2{
+  color: #76B223;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 15px;
+}
 .btn{
   background-color: #76B223;
   color: white;
@@ -45,4 +58,18 @@
   font-family: "Nunito", sans-serif;
   padding: 30px;
   line-height: 2.2;
+}
+
+#bathrooms-show{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  line-height: 1.5;
+  padding-left: 30px;
+  margin-top: 40px;
+}
+
+#user-profile{
+  color: #76B223;
+  font-family: "Nunito", sans-serif;
+  padding-left: 30px; 
 }

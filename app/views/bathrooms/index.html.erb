@@ -15,7 +15,7 @@
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/light-v11', // style URL
     center: [-87.623177, 41.881832], // starting position [lng, lat]
-    zoom: 10, // starting zoom
+    zoom: 9, // starting zoom
   });
 
   map.addControl(new mapboxgl.GeolocateControl({
@@ -43,14 +43,16 @@
       .addTo(map);
   <% end %>
 </script>
+  
 
-
-  <div id="bathrooms">
+  <div id="bathrooms-list">
+    <h2>List of bathrooms</h2>
     <% @bathrooms.each do |bathroom| %>
       <%= render bathroom %>
       <p>
         <%= link_to "Show this bathroom", bathroom %>
       </p>
+      <br>
     <% end %>
   </div>
 

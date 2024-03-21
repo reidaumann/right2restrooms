@@ -1,5 +1,5 @@
 <div id="<%= dom_id bathroom %>">
-  <p>
+  <p id="address">
     <strong>Address:</strong>
     <%= bathroom.address %>
   </p>
@@ -9,24 +9,33 @@
     <%= bathroom.hours %>
   </p>
 
-  <p>
-    <strong>Accessible:</strong>
-    <%= bathroom.accessible %>
-  </p>
+  <%if bathroom.accessible == true %>
+    <p>
+      <strong>Wheelchair accessible</strong>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Gender neutral:</strong>
-    <%= bathroom.gender_neutral %>
-  </p>
+  <%if bathroom.gender_neutral == true %>
+    <p>
+      <strong>Gender neutral bathrooms available</strong>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Family accessible:</strong>
-    <%= bathroom.family_accessible %>
-  </p>
+  <%if bathroom.family_accessible == true %>
+    <p>
+      <strong>Family accessible</strong>
+    </p>
+  <% end %>
 
-  <p>
-    <strong>Purchase required:</strong>
-    <%= bathroom.purchase_required %>
-  </p>
+  <%if bathroom.family_accessible == false %>
+    <p>
+      <strong>Free to use!</strong>
+    </p>
+  <%else%>
+    <p>
+      <strong>Purchase required</strong>
+    </p>
+  <% end %>
+
 
 </div>
