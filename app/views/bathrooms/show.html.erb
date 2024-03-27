@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
+<div id="bathrooms-show">
+  <%= render @bathroom %>
 
-<%= render @bathroom %>
-
-<div>
-  <%= link_to "Edit this bathroom", edit_bathroom_path(@bathroom) %> |
-  <%= link_to "Back to bathrooms", bathrooms_path %>
-
-  <%= button_to "Destroy this bathroom", @bathroom, method: :delete %>
+  <div>
+    <%= link_to "Edit this bathroom", edit_bathroom_path(@bathroom) %> |
+    <%= link_to "Back to bathrooms", bathrooms_path %> | 
+    <a href = "/bathrooms/new">Add another bathroom</a>
+    <%= button_to "Delete this bathroom from the database", @bathroom, method: :delete, class: 'btn' %>
+  </div>
 </div>
