@@ -45,6 +45,12 @@
   font-weight: 500;
 }
 
+h3{
+  color: #76B223;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+}
+
 #header img{
   float: left;
   display: inline;

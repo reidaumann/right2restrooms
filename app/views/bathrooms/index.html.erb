@@ -8,7 +8,7 @@
   <div id="map">
   </div>
 
-  <script>
+<script>
   var api_key = '<%= ENV["MAPBOX_API_KEY"] %>';
   mapboxgl.accessToken = api_key;
   const map = new mapboxgl.Map({
@@ -34,13 +34,28 @@
 
   // Declare the marker variable outside the loop
   let marker;
+  let popup;
+  let coordinate_set;
+  let address;
 
-  <% @bathroom_coordinates.each do |coordinate_set| %>
-    // Update marker position within each iteration
+ // Loop through bathroom coordinates
+  <% @bathrooms.each do |bathroom| %>
+    // Extract coordinates and address from bathroom object
+    coordinate_set = [<%= bathroom.longitude %>, <%= bathroom.latitude %>];
+    address = '<%= bathroom.address %>';
+
+    // Create marker
     marker = new mapboxgl.Marker({
       color: "#76B223",
-    }).setLngLat(<%= coordinate_set.to_json %>)
+    }).setLngLat(coordinate_set)
       .addTo(map);
+
+    // Create popup with address information
+    popup = new mapboxgl.Popup()
+      .setHTML('<h3>Address</h3><p>' + address + '</p>');
+
+    // Associate popup with marker
+    marker.setPopup(popup);
   <% end %>
 </script>
   
