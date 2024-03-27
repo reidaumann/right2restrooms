@@ -26,6 +26,11 @@
   line-height: 2.2;
 }
 
+#new-bath-form input{
+  border-radius: 5px;
+  font-family: "Nunito", sans-serif;
+}
+
 #new-header-and-link{
   color: #3B5912;
   font-family: "Nunito", sans-serif;
@@ -54,6 +59,21 @@
   margin-top: 30px;
 }
 
+#search-form{
+  display: block; 
+  text-align: center;
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding: 30px;
+  line-height: 2.2;
+}
+
+#search-form input {
+  width: 15%;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  color: #76B223;
+}
 #devise-forms{
   color: #3B5912;
   font-family: "Nunito", sans-serif;

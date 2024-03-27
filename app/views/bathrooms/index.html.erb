@@ -8,6 +8,18 @@
   <div id="map">
   </div>
 
+  <div id="search-form">
+    <%= form_tag bathrooms_path, method: :get do %>
+      <%= label :location, "Bathrooms near (address): " %>
+      <%= text_field_tag :location, params[:location] %>
+
+      <%= label :distance, "Distance (in miles): " %>
+      <%= text_field_tag :distance, params[:distance] %>
+
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
 <script>
   var api_key = '<%= ENV["MAPBOX_API_KEY"] %>';
   mapboxgl.accessToken = api_key;
