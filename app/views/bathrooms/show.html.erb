@@ -11,6 +11,7 @@
   <h2>Reviews of this bathroom</h2>
   <% @bathroom.reviews.each do |review| %>
     <p>User <%=review.user_id%>'s comment: <%= review.body %></p>
+    <%= button_to "Delete review", review_path(review), method: :delete %>
   <%end%>
   <div>
     <h2> Add a new review to this restroom: </h2>
@@ -20,7 +21,6 @@
   <div>
     <%= link_to "Edit this bathroom", edit_bathroom_path(@bathroom) %> |
     <%= link_to "Back to bathrooms", bathrooms_path %> | 
-    <%= link_to "Review this bathroom", new_review_path %> |
     <a href = "/bathrooms/new">Add another bathroom</a>
     <%= button_to "Delete this bathroom from the database", @bathroom, method: :delete, class: 'btn' %>
   </div>
