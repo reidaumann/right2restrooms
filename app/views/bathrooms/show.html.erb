@@ -3,8 +3,24 @@
   <%= render @bathroom %>
 
   <div>
+    <h2> Favorite this restroom: </h2>
+    <%= render "favorites/form", favorite: @favorite, user_id: current_user.id %>
+  </div>
+
+
+  <h2>Reviews of this bathroom</h2>
+  <% @bathroom.reviews.each do |review| %>
+    <p>User <%=review.user_id%>'s comment: <%= review.body %></p>
+  <%end%>
+  <div>
+    <h2> Add a new review to this restroom: </h2>
+    <%= render "reviews/form", review: @bathroom.reviews.build %>
+  </div>
+
+  <div>
     <%= link_to "Edit this bathroom", edit_bathroom_path(@bathroom) %> |
     <%= link_to "Back to bathrooms", bathrooms_path %> | 
+    <%= link_to "Review this bathroom", new_review_path %> |
     <a href = "/bathrooms/new">Add another bathroom</a>
     <%= button_to "Delete this bathroom from the database", @bathroom, method: :delete, class: 'btn' %>
   </div>
