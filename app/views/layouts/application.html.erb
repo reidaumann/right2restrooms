@@ -20,12 +20,37 @@
 
   <body>
     <div id="header">
+        <div class="topnav">
+        <a href="#home" class="active"></a>
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+          <a href="/users/<%=current_user.id%>">My Favorites</a>
+          <a href="/">Home</a>
+          <a href="/bathrooms/new">Add a new bathroom</a>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars fa-2xl"></i>
+        </a>
+
       <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
-      <i class="fa-solid fa-bars fa-2xl" style="color: #000000; float: right; margin-top: 40px; height: 80px; width: 80px;"></i>
       <h1>Right2Restrooms</h1>
       <p>Find the public bathroom YOU need!</p>
-
+      </div>
     </div>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+      }
+  </script>
+
+
     <%= yield %>
   </body>
 </html>
