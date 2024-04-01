@@ -3,5 +3,9 @@
   <%= button_to "logout", destroy_user_session_path, method: :delete  %>
   <% @favorite_bathrooms.each do |bathroom| %>
     <%= render bathroom %>
+    <p>
+      <%= link_to "Show this bathroom", bathroom %>
+    </p>
+    <br>
   <% end %>
 </div>
