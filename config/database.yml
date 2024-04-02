@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: right2rest_prod
-  #username: rails_template
-  #password: <%= ENV["RAILS_TEMPLATE_DATABASE_PASSWORD"] %>
+  database: right2rest
+  username: right2rest_user
+  password: rmnlMacdx2Dd8rbGdnjlR7mbnGXel0yM

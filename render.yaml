@@ -11,4 +11,4 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: right2rest_prod
-          property: connectionString
+          #property: connectionString
