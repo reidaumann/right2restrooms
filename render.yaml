@@ -8,3 +8,7 @@ services:
     envVars: # this section sets some ENV variables needed by Render for deployment
       - key: SECRET_KEY_BASE
         generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: right2rest_prod
+          property: connectionString

@@ -81,7 +81,6 @@ gem "faker"
 gem "geocoder"
 gem "htmlbeautifier"
 gem "http"
-gem "sqlite3", "~> 1.4"
 gem "table_print"
 
 group :development do
