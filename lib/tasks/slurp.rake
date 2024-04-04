@@ -2,6 +2,9 @@ namespace :slurp do
   desc "Import library bathrooms from CSV"
   task bathrooms: :environment do
     require "csv"
+    if Rails.env.production?
+      Bathroom.destroy_all
+    end
     
     csv_text = File.read(Rails.root.join("lib", "csvs", "Bathrooms1.csv"))
     csv = CSV.parse(csv_text, headers: true, encoding: "ISO-8859-1")
