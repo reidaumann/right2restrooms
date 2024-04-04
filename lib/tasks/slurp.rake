@@ -1,4 +1,4 @@
-namespace :app do
+namespace :slurp do
   desc "Import bathrooms from CSV"
   task bathrooms: :environment do
     require "csv"
