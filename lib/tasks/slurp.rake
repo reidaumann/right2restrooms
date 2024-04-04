@@ -44,3 +44,4 @@ namespace :slurp do
 
     puts "There are now #{Bathroom.count} rows in the bathrooms table"
   end
+end
