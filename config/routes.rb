@@ -9,6 +9,5 @@ Rails.application.routes.draw do
   resources :bathrooms do
     resources :favorites, only: [:create, :destroy]
   end
-  resources :reviews
-  # root "articles#index"
+  resources :reviews,  only: [:create, :destroy]
 end
