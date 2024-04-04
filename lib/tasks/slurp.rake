@@ -34,15 +34,15 @@ namespace :slurp do
     csv = CSV.parse(csv_text, headers: true, encoding: "ISO-8859-1")
     
     csv.each do |row|
-      b = Bathroom.new
-      b.hours = "24/7"
-      b.address = row["Address"]
-      b.accessible = false
-      b.gender_neutral = false
-      b.family_accessible = false
-      b.purchase_required = false
-      b.save
-      puts "#{b.hours}, #{b.address} saved"
+      d = Bathroom.new
+      d.hours = "24/7"
+      d.address = row["Address"]
+      d.accessible = false
+      d.gender_neutral = false
+      d.family_accessible = false
+      d.purchase_required = false
+      d.save
+      puts "#{d.hours}, #{d.address} saved"
     end
 
     puts "There are now #{Bathroom.count} rows in the bathrooms table"
