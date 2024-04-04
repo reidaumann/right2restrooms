@@ -4,9 +4,9 @@ class BathroomsController < ApplicationController
   # GET /bathrooms or /bathrooms.json
   def index
     if params[:location].present?
-      @bathrooms = Bathroom.near(params[:location], params[:distance] || 15, order: :distance)
+      @bathrooms = Bathroom.near(params[:location], params[:distance] || 15, order: :distance).page(params[:page])
     else
-      @bathrooms = Bathroom.all
+      @bathrooms = Bathroom.all.page params[:page]
     end
   end
 

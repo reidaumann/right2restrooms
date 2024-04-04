@@ -22,4 +22,5 @@ class Bathroom < ApplicationRecord
   has_many :favorites, class_name: "Favorite", foreign_key: "bathroom_id", dependent: :destroy
   has_many :favorited_by_users, through: :favorites, source: :user
   has_many :reviews
+  paginates_per 10
 end
