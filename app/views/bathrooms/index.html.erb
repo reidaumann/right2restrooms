@@ -83,7 +83,9 @@
     <% end %>
   </div>
 
-  <%= paginate @bathrooms %>
+  <div id='pagination'>
+    <%= paginate @bathrooms %>
+  </div>
 
   <div id="add-link">
     <%= link_to "Add a new bathroom to our database", new_bathroom_path %>

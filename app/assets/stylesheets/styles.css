@@ -3,6 +3,7 @@
   padding: 10px;
   color: #3B5912;
   font-family: "Nunito", sans-serif;
+  font-size: 22px;
   font-optical-sizing: auto;
   font-weight: 500;
 }
@@ -133,4 +134,12 @@
   color: #76B223;
   font-family: "Nunito", sans-serif;
   padding-left: 30px; 
+}
+
+#pagination{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding: 3px;
+  margin-left: 25px;
+  font-size: 18px;
 }
