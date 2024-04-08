@@ -160,3 +160,16 @@ button{
   width: 90px;
   margin-bottom: 30px;
 }
+
+.sign-in-up-form{
+  height: 100px;
+  width: 100px;
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+}
+#sign-in{
+  color: white;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+}
