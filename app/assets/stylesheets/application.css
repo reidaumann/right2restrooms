@@ -58,5 +58,19 @@ h3{
   width: 80px;
 }
 
-/* Devise forms CSS */
+/*Cards CSS*/
+.cards{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
+.card{
+  width: 40%;
+  border-style: solid;
+  border-color: #3B5912;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}

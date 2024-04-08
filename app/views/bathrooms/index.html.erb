@@ -3,6 +3,7 @@
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
 </head>
 <body>
+  <%= render partial: "shared/navbar" %>
   <p style="color: green"><%= notice %></p>
 
   <div id="map">
@@ -74,13 +75,13 @@
 
   <div id="bathrooms-list">
     <h2>List of bathrooms</h2>
-    <% @bathrooms.each do |bathroom| %>
-      <%= render bathroom %>
-      <p>
-        <%= link_to "Show this bathroom", bathroom %>
-      </p>
-      <br>
-    <% end %>
+    <div class="cards">
+      <% @bathrooms.each do |bathroom| %>
+        <%= render bathroom %>
+
+        <br>
+      <% end %>
+    </div>
   </div>
 
   <div id='pagination'>
