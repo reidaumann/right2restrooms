@@ -1,0 +1,32 @@
+    <div id="header">
+      <div class="topnav">
+        <!-- Navigation links (hidden by default) -->
+        <div id="myLinks">
+          <% if user_signed_in? %>
+            <a href="/users/<%=current_user.id%>">My Favorites</a>
+          <%else%>
+            <a href="/users/sign_in">Sign in</a>
+          <% end %>
+          <a href="/">Home</a>
+          <a href="/bathrooms/new">Add a new bathroom</a>
+        </div>
+        <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+          <i class="fa fa-bars fa-2xl"></i>
+        </a>
+      <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
+      <h1>Right2Restrooms</h1>
+      <p>Find the public bathroom YOU need!</p>
+      </div>
+    </div>
+
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myLinks");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+      }
+    </script>
