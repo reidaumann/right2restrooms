@@ -8,50 +8,67 @@
   <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
   <div class="container">
     <div class="form-container sign-up-container">
-        <form action="<%= user_registration_path %>" method="post">
-            <h1>Create Account</h1>
-            <input type="email" name="user[email]" placeholder="Email" />
-            <input type="password" name="user[password]" placeholder="Password" />
-            <input type="password" name="user[password_confirmation]" placeholder="Confirm Password" />
-            <button type="submit">Sign Up</button>
-        </form>
+      <form action="<%= user_registration_path %>" method="post">
+        <h1>Create Account</h1>
+        <input type="email" name="user[email]" placeholder="Email" />
+        <input type="password" name="user[password]" placeholder="Password" />
+        <input type="password" name="user[password_confirmation]" placeholder="Confirm Password" />
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
     <div class="form-container sign-in-container">
-        <form action="<%= user_session_path %>" method="post">
-            <h1>Sign in</h1>
-            <input type="email" name="user[email]" placeholder="Email" />
-            <input type="password" name="user[password]" placeholder="Password" />
-            <a href="#">Forgot your password?</a>
-            <button type="submit">Sign In</button>
-        </form>
+      <form action="<%= user_session_path %>" method="post">
+        <h1>Sign in</h1>
+        <input type="email" name="user[email]" placeholder="Email" />
+        <input type="password" name="user[password]" placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+    <div class="mobile-toggle">
+      <!-- This button toggles between sign up and sign in -->
+      <button id="toggleSignUp">Sign Up</button>
     </div>
     <div class="overlay-container">
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>Welcome Back to Right2Restrooms!</h1>
-                <p>Login to find the closest public restroom that fits YOUR needs!</p>
-                <button class="ghost" id="signIn">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Welcome to Right2Restrooms!</h1>
-                <p>Sign up to start finding public restrooms that fit your accessibility needs near you</p>
-                <button class="ghost" id="signUp">Sign Up</button>
-            </div>
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back to Right2Restrooms!</h1>
+          <p>Login to find the closest public restroom that fits YOUR needs!</p>
+          <button class="ghost" id="signIn">Sign In</button>
         </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Welcome to Right2Restrooms!</h1>
+          <p>Sign up to start finding public restrooms that fit your accessibility needs near you</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
+    const toggleSignUpButton = document.getElementById('toggleSignUp');
     const container = document.querySelector('.container');
 
     signUpButton.addEventListener('click', () => {
       container.classList.add("right-panel-active");
+      toggleSignUpButton.innerText = "Sign In";
     });
 
     signInButton.addEventListener('click', () => {
       container.classList.remove("right-panel-active");
+      toggleSignUpButton.innerText = "Sign Up";
+    });
+
+    toggleSignUpButton.addEventListener('click', () => {
+      if (container.classList.contains("right-panel-active")) {
+        container.classList.remove("right-panel-active");
+        toggleSignUpButton.innerText = "Sign Up";
+      } else {
+        container.classList.add("right-panel-active");
+        toggleSignUpButton.innerText = "Sign In";
+      }
     });
   </script>
 </body>
