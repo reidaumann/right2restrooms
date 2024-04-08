@@ -1,11 +1,13 @@
+<%= render partial: "shared/navbar" %>
 <div id="user-profile">
   <h1> <%=@user.email%>'s Favorite Restrooms</h1> 
-  <%= button_to "logout", destroy_user_session_path, method: :delete  %>
-  <% @favorite_bathrooms.each do |bathroom| %>
-    <%= render bathroom %>
-    <p>
-      <%= link_to "Show this bathroom", bathroom %>
-    </p>
-    <br>
-  <% end %>
+  <div id="btn">
+    <%= button_to "Log out", destroy_user_session_path, method: :delete  %>
+  </div>
+  <div class="cards">
+    <% @favorite_bathrooms.each do |bathroom| %>
+        <%= render bathroom %>
+      <br>
+    <% end %>
+  </div>
 </div>

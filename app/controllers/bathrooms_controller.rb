@@ -5,6 +5,10 @@ class BathroomsController < ApplicationController
   def index
     if params[:location].present?
       @bathrooms = Bathroom.near(params[:location], params[:distance] || 15, order: :distance).page(params[:page])
+      @bathrooms = @bathrooms.where(accessible: true) if params[:accessible] == 'true'
+      @bathrooms = @bathrooms.where(gender_neutral: true) if params[:gender_neutral] == 'true'
+      @bathrooms = @bathrooms.where(family_accessible: true) if params[:family_accessible] == 'true'
+      @bathrooms = @bathrooms.where(purchase_required: false) if params[:purchase_required] == 'true'
     else
       @bathrooms = Bathroom.all.page(params[:page])
     end

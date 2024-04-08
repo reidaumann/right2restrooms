@@ -13,9 +13,24 @@
     <%= form_tag bathrooms_path, method: :get do %>
       <%= label :location, "Bathrooms near (address): " %>
       <%= text_field_tag :location, params[:location] %>
-
       <%= label :distance, "Distance (in miles): " %>
       <%= text_field_tag :distance, params[:distance] %>
+
+      <div id="check-boxes">
+
+        <%= label :accessible, "Accessible: " %>
+        <%= check_box_tag :accessible, 'true', params[:accessible] %>
+
+        <%= label :gender_neutral, "Gender Neutral: " %>
+        <%= check_box_tag :gender_neutral, 'true', params[:gender_neutral] %>
+
+        <%= label :family_accessible, "Family Accessible: " %>
+        <%= check_box_tag :family_accessible, 'true', params[:family_accessible] %>
+
+        <%= label :purchase_required, "Free Access: " %>
+        <%= check_box_tag :purchase_required, 'true', params[:purchase_required] %>
+
+      </div>
 
       <%= submit_tag "Search" %>
     <% end %>

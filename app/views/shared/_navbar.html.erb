@@ -1,7 +1,9 @@
     <div id="header">
       <div class="topnav">
-        <!-- Navigation links (hidden by default) -->
-        <div id="myLinks">
+      <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
+      <h1>Right2Restrooms</h1>
+      <p>Find the public bathroom YOU need!</p>
+      <div id="myLinks">
           <% if user_signed_in? %>
             <a href="/users/<%=current_user.id%>">My Favorites</a>
           <%else%>
@@ -14,9 +16,6 @@
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
           <i class="fa fa-bars fa-2xl"></i>
         </a>
-      <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
-      <h1>Right2Restrooms</h1>
-      <p>Find the public bathroom YOU need!</p>
       </div>
     </div>
 

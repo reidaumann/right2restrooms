@@ -9,7 +9,9 @@
 }
 
 .topnav {
-  background-color: #333;
+  background-color: #3B5912;
+  color: white;
+  font-family: "Nunito", sans-serif;
   position: relative;
 }
 
@@ -29,6 +31,7 @@
 
 /* Style the hamburger menu */
 .topnav a.icon {
+  padding-top: 30px;
   background: #76B223;
   color: black;
   display: inline;
@@ -94,21 +97,23 @@
 }
 
 #map{
+  display: block;
+  padding-top: 80px;
   height: 400px;
   width: 80%;
   margin: auto;
   border-radius: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 #search-form{
-  display: block; 
   text-align: center;
   color: #3B5912;
   font-family: "Nunito", sans-serif;
   padding: 30px;
   line-height: 2.2;
 }
-
 #search-form input {
   width: 15%;
   border-radius: 10px;
@@ -127,7 +132,13 @@
 #user-profile{
   color: #76B223;
   font-family: "Nunito", sans-serif;
+}
+
+#user-profile h1{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
   padding-left: 30px; 
+  text-align: center;
 }
 
 #pagination{
@@ -136,4 +147,16 @@
   padding: 3px;
   margin-left: 25px;
   font-size: 18px;
+}
+
+button{
+  display: block;
+  margin: auto;
+  background-color: #3B5912;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  border-radius: 10px;
+  height: 30px;
+  width: 90px;
+  margin-bottom: 30px;
 }
