@@ -1,29 +1,58 @@
-<body style="background-color: #76B223;">
-  <img class="sign-in-up-form" src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
-  <h2 id="sign-in">Welcome back to Right2Restrooms where we help you find the public restroom that fits your needs! </h2>
-
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-in/Sign-up Form</title>
+  <%= stylesheet_link_tag 'sign_in_up_form' %>
+</head>
+<body class="sign-in-page">
+  <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
+  <div class="container">
+    <div class="form-container sign-up-container">
+        <form action="<%= user_registration_path %>" method="post">
+            <h1>Create Account</h1>
+            <input type="email" name="user[email]" placeholder="Email" />
+            <input type="password" name="user[password]" placeholder="Password" />
+            <input type="password" name="user[password_confirmation]" placeholder="Confirm Password" />
+            <button type="submit">Sign Up</button>
+        </form>
     </div>
-
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "off" %>
+    <div class="form-container sign-in-container">
+        <form action="<%= user_session_path %>" method="post">
+            <h1>Sign in</h1>
+            <input type="email" name="user[email]" placeholder="Email" />
+            <input type="password" name="user[password]" placeholder="Password" />
+            <a href="#">Forgot your password?</a>
+            <button type="submit">Sign In</button>
+        </form>
     </div>
-
-    <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end -%>
-
-    <div class="actions">
-      <%= f.submit "Log in" %>
+    <div class="overlay-container">
+        <div class="overlay">
+            <div class="overlay-panel overlay-left">
+                <h1>Welcome Back to Right2Restrooms!</h1>
+                <p>Login to find the closest public restroom that fits YOUR needs!</p>
+                <button class="ghost" id="signIn">Sign In</button>
+            </div>
+            <div class="overlay-panel overlay-right">
+                <h1>Welcome to Right2Restrooms!</h1>
+                <p>Sign up to start finding public restrooms that fit your accessibility needs near you</p>
+                <button class="ghost" id="signUp">Sign Up</button>
+            </div>
+        </div>
     </div>
-  <% end %>
+  </div>
 
-  <%= render "devise/shared/links" %>
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.querySelector('.container');
+
+    signUpButton.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+      container.classList.remove("right-panel-active");
+    });
+  </script>
 </body>
+</html>
