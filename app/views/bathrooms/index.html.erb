@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+<div id="bathrooms">
+  <% @bathrooms.each do |bathroom| %>
+    <%= render bathroom %>
+    <p>
+      <%= link_to "Show this bathroom", bathroom %>
+    </p>
+  <% end %>
+</div>
+
+<div id="add-link">
+<%= link_to "Add a new bathroom to our database", new_bathroom_path %>
+</div>

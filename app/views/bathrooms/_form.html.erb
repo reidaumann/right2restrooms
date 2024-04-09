@@ -1,0 +1,47 @@
+<%= form_with(model: bathroom) do |form| %>
+  <% if bathroom.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bathroom.errors.count, "error") %> prohibited this bathroom from being saved:</h2>
+
+      <ul>
+        <% bathroom.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :hours, style: "display: block" %>
+    <%= form.text_field :hours %>
+  </div>
+
+  <div>
+    <%= form.label :accessible, style: "display: block" %>
+    <%= form.check_box :accessible %>
+  </div>
+
+  <div>
+    <%= form.label :gender_neutral, style: "display: block" %>
+    <%= form.check_box :gender_neutral %>
+  </div>
+
+  <div>
+    <%= form.label :family_accessible, style: "display: block" %>
+    <%= form.check_box :family_accessible %>
+  </div>
+
+  <div>
+    <%= form.label :purchase_required, style: "display: block" %>
+    <%= form.check_box :purchase_required %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
