@@ -2,6 +2,9 @@
 
 Right2Restrooms is a web application that allows users to find nearby public restrooms, filter for accessbility, and add new reviews and restrooms to our database.
 
+## Contributing
+If you want to contribute please open an issue ticket and I will try to respond as quickly as possible! 
+
 ## Domain Model
 - User (Devise)
   - id
