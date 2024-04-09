@@ -149,14 +149,13 @@
   font-size: 18px;
 }
 
-#button{
+input[type="submit" i] {
   display: block;
-  margin: auto;
   background-color: #3B5912;
   color: white;
   font-family: "Nunito", sans-serif;
   border-radius: 10px;
   height: 30px;
-  width: 90px;
+  width: 120px;
   margin-bottom: 30px;
 }

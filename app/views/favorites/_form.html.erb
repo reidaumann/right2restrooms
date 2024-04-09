@@ -8,6 +8,6 @@
   <%= form_with(model: Favorite.new, url: bathroom_favorites_path(@bathroom), local: true) do |form| %>
     <%= form.hidden_field :bathroom_id, value: @bathroom.id %>
     <%= form.hidden_field :user_id, value: user_id %>
-    <%= form.submit "Favorite" %>
+      <%= form.submit "Favorite"%>
   <% end %>
 <% end %>
