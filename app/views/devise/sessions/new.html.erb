@@ -50,26 +50,54 @@
     const signInButton = document.getElementById('signIn');
     const toggleSignUpButton = document.getElementById('toggleSignUp');
     const container = document.querySelector('.container');
+    const signUpForm = document.querySelector('.sign-up-container');
+    const signInForm = document.querySelector('.sign-in-container');
+
+    // Function to check if the screen size is small (mobile)
+    function isSmallScreen() {
+      return window.innerWidth <= 768; // Adjust as needed
+    }
 
     signUpButton.addEventListener('click', () => {
-      container.classList.add("right-panel-active");
-      toggleSignUpButton.innerText = "Sign In";
+      if (isSmallScreen()) {
+        signUpForm.style.display = "block";
+        signInForm.style.display = "none";
+        toggleSignUpButton.textContent = "Sign In";
+      } else {
+        container.classList.add("right-panel-active");
+      }
     });
 
     signInButton.addEventListener('click', () => {
-      container.classList.remove("right-panel-active");
-      toggleSignUpButton.innerText = "Sign Up";
+      if (isSmallScreen()) {
+        signUpForm.style.display = "none";
+        signInForm.style.display = "block";
+        toggleSignUpButton.textContent = "Sign Up";
+      } else {
+        container.classList.remove("right-panel-active");
+      }
     });
 
     toggleSignUpButton.addEventListener('click', () => {
-      if (container.classList.contains("right-panel-active")) {
-        container.classList.remove("right-panel-active");
-        toggleSignUpButton.innerText = "Sign Up";
+      if (isSmallScreen()) {
+        if (signUpForm.style.display === "none") {
+          signUpForm.style.display = "block";
+          signInForm.style.display = "none";
+          toggleSignUpButton.textContent = "Sign In";
+        } else {
+          signUpForm.style.display = "none";
+          signInForm.style.display = "block";
+          toggleSignUpButton.textContent = "Sign Up";
+        }
       } else {
-        container.classList.add("right-panel-active");
-        toggleSignUpButton.innerText = "Sign In";
+        if (container.classList.contains("right-panel-active")) {
+          container.classList.remove("right-panel-active");
+        } else {
+          container.classList.add("right-panel-active");
+        }
       }
     });
   </script>
+
 </body>
 </html>
