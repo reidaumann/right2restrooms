@@ -4,7 +4,8 @@ class BathroomsController < ApplicationController
   # GET /bathrooms or /bathrooms.json
   def index
     if params[:location].present?
-      @bathrooms = Bathroom.near(params[:location], params[:distance] || 15, order: :distance).page(params[:page])
+      distance = params[:distance].present? ? params[:distance].to_i : 15 # Set default distance to 15 if not provided
+      @bathrooms = Bathroom.near(params[:location], distance, order: :distance).page(params[:page])
       @bathrooms = @bathrooms.where(accessible: true) if params[:accessible] == 'true'
       @bathrooms = @bathrooms.where(gender_neutral: true) if params[:gender_neutral] == 'true'
       @bathrooms = @bathrooms.where(family_accessible: true) if params[:family_accessible] == 'true'
