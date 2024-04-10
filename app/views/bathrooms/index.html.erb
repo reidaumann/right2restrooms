@@ -60,32 +60,26 @@
 
   map.addControl(nav, 'bottom-right');
 
-  // Declare the marker variable outside the loop
-  let marker;
-  let popup;
-  let coordinate_set;
-  let address;
-
-
- // Loop through bathroom coordinates
+  // Loop through bathroom coordinates
   <% @bathrooms.each do |bathroom| %>
     // Extract coordinates and address from bathroom object
-    coordinate_set = [<%= bathroom.longitude %>, <%= bathroom.latitude %>];
-    address = '<%= bathroom.address %>';
+    var coordinate_set = [<%= bathroom.longitude %>, <%= bathroom.latitude %>];
+    var address = '<%= bathroom.address %>';
+    var googleMapsLink = 'https://maps.google.com/?q=' + encodeURIComponent(address);
+    var popupContent = '<h3>Address</h3><p><a href="' + googleMapsLink + '" target="_blank">' + address + '</a></p>';
 
     // Create marker
-    marker = new mapboxgl.Marker({
+    var marker = new mapboxgl.Marker({
       color: "#76B223",
     }).setLngLat(coordinate_set)
       .addTo(map);
 
     // Create popup with address information
-
-    var googleMapsLink = 'https://maps.google.com/?q=' + encodeURIComponent(address);
-    var popupContent = '<h3>Address</h3><p><a href="' + googleMapsLink + '" target="_blank">' + address + '</a></p>';
-    // Creating the popup with the modified content
-    popup = new mapboxgl.Popup()
+    var popup = new mapboxgl.Popup()
       .setHTML(popupContent);
+
+    // Add popup to marker
+    marker.setPopup(popup);
   <% end %>
 </script>
   
