@@ -81,11 +81,11 @@
 
     // Create popup with address information
 
+    var googleMapsLink = 'https://maps.google.com/?q=' + encodeURIComponent(address);
+    var popupContent = '<h3>Address</h3><p><a href="' + googleMapsLink + '" target="_blank">' + address + '</a></p>';
+    // Creating the popup with the modified content
     popup = new mapboxgl.Popup()
-      .setHTML(<h3>Address</h3>);
-
-    // Associate popup with marker
-    marker.setPopup(popup);
+      .setHTML(popupContent);
   <% end %>
 </script>
   
