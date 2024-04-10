@@ -65,6 +65,8 @@
   let popup;
   let coordinate_set;
   let address;
+  let googleMapsLink;
+  let popupContent;
 
  // Loop through bathroom coordinates
   <% @bathrooms.each do |bathroom| %>
@@ -79,8 +81,8 @@
       .addTo(map);
 
     // Create popup with address information
-    var googleMapsLink = 'https://maps.google.com/?q=' + encodeURIComponent(address);
-    var popupContent = '<h3>Address</h3><p><a href="' + googleMapsLink + '" target="_blank">' + address + '</a></p>';
+    googleMapsLink = 'https://maps.google.com/?q=' + encodeURIComponent(address);
+    popupContent = '<h3>Address</h3><p><a href="' + googleMapsLink + '" target="_blank">' + address + '</a></p>';
 
     popup = new mapboxgl.Popup()
       .setHTML(popupContent);
