@@ -248,3 +248,10 @@ input[type="submit" i] {
 .button-3:hover {
   background-color: #76B223;
 }
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 90%;
+    margin: auto;
+  }
+}
