@@ -107,19 +107,72 @@
   z-index: 1;
 }
 
-#search-form{
-  text-align: center;
-  color: #3B5912;
-  font-family: "Nunito", sans-serif;
-  padding: 30px;
-  line-height: 2.2;
+#search-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #76B223;
+  border: 1px solid #3B5912;
+  border-radius: 5px;
 }
-#search-form input {
-  width: 15%;
-  border-radius: 10px;
+
+label {
   font-family: "Nunito", sans-serif;
-  color: #76B223;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
 }
+
+input[type="text"],
+select {
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #3B5912;
+  border-radius: 3px;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+#multi-select-dropdown select {
+  height: 100px; /* Adjust the height of the dropdown */
+}
+
+#check-boxes label,
+#multi-select-dropdown label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#check-boxes input[type="checkbox"],
+#multi-select-dropdown select {
+  vertical-align: middle;
+}
+
+#check-boxes,
+#multi-select-dropdown {
+  margin-bottom: 15px;
+}
+
+#check-boxes input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#check-boxes label,
+#multi-select-dropdown label {
+  font-weight: normal;
+}
+
+#check-boxes label:first-child,
+#multi-select-dropdown label:first-child {
+  margin-left: 0;
+}
+
+#check-boxes label,
+#multi-select-dropdown label {
+  display: block;
+}
+
 
 #bathrooms-show{
   color: #3B5912;
@@ -158,4 +211,40 @@ input[type="submit" i] {
   height: 30px;
   width: 120px;
   margin-bottom: 30px;
+}
+
+/* CSS */
+.button-3 {
+  appearance: none;
+  background-color: #3B5912;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto;
+  font-family: "Nunito", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #76B223;
 }
