@@ -35,14 +35,13 @@
     <%= button_to "Delete review", review_path(review), method: :delete %>
   <%end%>
   <div>
-    <h2> Add a new review to this restroom: </h2>
     <%= render "reviews/form", review: @bathroom.reviews.build %>
   </div>
 
   <div>
-    <%= link_to "Edit this bathroom", edit_bathroom_path(@bathroom) %> |
-    <%= link_to "Back to bathrooms", bathrooms_path %> | 
-    <a href = "/bathrooms/new">Add another bathroom</a>
-    <%= button_to "Delete this bathroom from the database", @bathroom, method: :delete, class: 'btn' %>
+    <%= link_to "Edit this bathroom's information", edit_bathroom_path(@bathroom) %> |
+    <%= link_to "Back to all bathrooms", bathrooms_path %> | 
+    <a href = "/bathrooms/new">Add another bathroom to our database</a>
+    <%= button_to "Delete this bathroom from the database", @bathroom, method: :delete, class: 'button-3' %>
   </div>
 </div>

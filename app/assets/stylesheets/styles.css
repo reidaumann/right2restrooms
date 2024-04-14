@@ -255,3 +255,54 @@ input[type="submit" i] {
     margin: auto;
   }
 }
+
+textarea {
+  width: 25%; /* Occupy full width of its container */
+  height: 100px; /* Set a default height */
+  padding: 10px; /* Add padding for better readability */
+  font-size: 16px; /* Set a comfortable font size */
+  border: 1px solid #4A6F16; /* Add a border for better visibility */
+  border-radius: 5px; /* Add rounded corners */
+  resize: vertical; /* Allow vertical resizing */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+@media screen and (max-width: 1024px) {
+  textarea {
+    width: 90%; /* Occupy full width of its container */
+    border: 1px solid #4A6F16; /* Add a border for better visibility */
+    border-radius: 5px; /* Add rounded corners */
+    resize: vertical; /* Allow vertical resizing */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+}
+
+#bathrooms-show {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#bathrooms-show .card{
+  margin: auto;
+  background-color: white;
+  color: #4A6F16;
+}
+
+#user-profile .card{
+  margin: auto;
+  background-color: white;
+  color: #4A6F16;
+}
+
+@media screen and (max-width: 1024px) {
+  #user-profile h1 {
+    width: 90%;
+    margin: auto;
+    font-size: 1.5em;
+  }
+}
