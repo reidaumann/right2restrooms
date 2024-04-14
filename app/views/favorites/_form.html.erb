@@ -1,27 +1,13 @@
-<%= form_with(model: favorite) do |form| %>
-  <% if favorite.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(favorite.errors.count, "error") %> prohibited this favorite from being saved:</h2>
-
-      <ul>
-        <% favorite.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+<% if favorite %>
+  <%= form_with(model: favorite, url: bathroom_favorite_path(favorite.bathroom, favorite), method: :delete, local: true) do |form| %>
+    <%= form.hidden_field :bathroom_id, value: @bathroom.id %>
+    <%= form.hidden_field :user_id, value: user_id %>
+    <%= form.submit "Unfavorite" %>
   <% end %>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :bathroom_id, style: "display: block" %>
-    <%= form.text_field :bathroom_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+<% else %>
+  <%= form_with(model: Favorite.new, url: bathroom_favorites_path(@bathroom), local: true) do |form| %>
+    <%= form.hidden_field :bathroom_id, value: @bathroom.id %>
+    <%= form.hidden_field :user_id, value: user_id %>
+      <%= form.submit "Favorite"%>
+  <% end %>
 <% end %>

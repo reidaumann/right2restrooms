@@ -23,14 +23,10 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to review_url(@review), notice: "Review was successfully created." }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    if @review.save
+      redirect_to bathroom_path(@review.bathroom_id), notice: "Review added!"
+    else
+      redirect_to bathroom_path(@review.bathroom_id), alert: "Unable to add review to bathroom"
     end
   end
 
@@ -51,10 +47,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
 
-    respond_to do |format|
-      format.html { redirect_to reviews_url, notice: "Review was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to bathroom_path(@review.bathroom_id), notice: "Review deleted!"
   end
 
   private

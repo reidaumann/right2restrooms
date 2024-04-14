@@ -1,38 +1,339 @@
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-#header h1{
-  text-align: center;
-  background-color: #76B223;
-  color: white;
-  padding-top: 5px;
-  margin: 0px;
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-}
-
-#header p{
-  text-align: center;
-  background-color: #76B223;
-  color: white;
-  margin: 0px;
-  font-family: "Nunito", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-}
-
 #add-link{
   text-align: center;
   padding: 10px;
   color: #3B5912;
   font-family: "Nunito", sans-serif;
+  font-size: 22px;
   font-optical-sizing: auto;
   font-weight: 500;
 }
 
+.topnav {
+  background-color: #3B5912;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  padding-top: 30px;
+  background: #76B223;
+  color: black;
+  display: inline;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  color: black;
+  background-color: #76B223;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: #76B223;
+  color: white;
+}
+
 #add-link a:visited {
   color: #3B5912;
+}
+
+#address{
+  font-size: 20px;
+}
+#bathrooms-list{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding: 40px;
+}
+
+#new-bath-form {
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding: 30px;
+  line-height: 1.6;
+}
+
+#new-bath-form input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Nunito", sans-serif;
+  width: calc(100% - 22px); /* Adjust width to accommodate checkbox */
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+#new-bath-form input[type="checkbox"] {
+  margin-top: 6px; /* Adjust margin to align checkboxes with text inputs */
+}
+
+#new-bath-form label {
+  margin-top: 6px;
+  display: inline-block; /* Ensure labels and inputs are in line */
+  vertical-align: top; /* Align labels with the top of their inputs */
+  margin-right: 10px; /* Add spacing between checkbox and label */
+}
+
+#new-bath-form input[type="submit"]:hover {
+  background-color: #4A6F16;
+}
+
+#new-bath-form div {
+  display: flex; /* Use flexbox for flexible layout */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 10px; /* Add margin bottom for spacing between questions */
+}
+
+#new-bath-form input[type="checkbox"] {
+  margin-right: 10px; /* Add spacing between checkbox and label */
+}
+
+#new-header-and-link{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding-top: 10px;
+  padding-left: 30px;
+}
+
+#bathrooms-list h2{
+  color: #76B223;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 15px;
+}
+.btn{
+  background-color: #76B223;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+#map{
+  display: block;
+  padding-top: 80px;
+  height: 400px;
+  width: 80%;
+  margin: auto;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+#search-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #76B223;
+  border: 1px solid #3B5912;
+  border-radius: 5px;
+}
+
+label {
+  font-family: "Nunito", sans-serif;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input[type="text"],
+select {
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #3B5912;
+  border-radius: 3px;
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+#multi-select-dropdown select {
+  height: 100px; /* Adjust the height of the dropdown */
+}
+
+#check-boxes label,
+#multi-select-dropdown label {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#check-boxes input[type="checkbox"],
+#multi-select-dropdown select {
+  vertical-align: middle;
+}
+
+#check-boxes,
+#multi-select-dropdown {
+  margin-bottom: 15px;
+}
+
+#check-boxes input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+#check-boxes label,
+#multi-select-dropdown label {
+  font-weight: normal;
+}
+
+#check-boxes label:first-child,
+#multi-select-dropdown label:first-child {
+  margin-left: 0;
+}
+
+#check-boxes label,
+#multi-select-dropdown label {
+  display: block;
+}
+
+
+#bathrooms-show{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  line-height: 1.5;
+  padding-left: 30px;
+  margin-top: 40px;
+}
+
+#user-profile{
+  color: #76B223;
+  font-family: "Nunito", sans-serif;
+}
+
+#user-profile h1{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding-left: 30px; 
+  text-align: center;
+}
+
+#pagination{
+  color: #3B5912;
+  font-family: "Nunito", sans-serif;
+  padding: 3px;
+  margin-left: 25px;
+  font-size: 18px;
+}
+
+input[type="submit" i] {
+  display: block;
+  background-color: #3B5912;
+  color: white;
+  font-family: "Nunito", sans-serif;
+  border-radius: 10px;
+  height: 30px;
+  width: 120px;
+  margin-bottom: 30px;
+}
+
+/* CSS */
+.button-3 {
+  appearance: none;
+  background-color: #3B5912;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #76B223;
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+textarea {
+  width: 25%; /* Occupy full width of its container */
+  height: 100px; /* Set a default height */
+  padding: 10px; /* Add padding for better readability */
+  font-size: 16px; /* Set a comfortable font size */
+  border: 1px solid #4A6F16; /* Add a border for better visibility */
+  border-radius: 5px; /* Add rounded corners */
+  resize: vertical; /* Allow vertical resizing */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+@media screen and (max-width: 1024px) {
+  textarea {
+    width: 90%; /* Occupy full width of its container */
+    border: 1px solid #4A6F16; /* Add a border for better visibility */
+    border-radius: 5px; /* Add rounded corners */
+    resize: vertical; /* Allow vertical resizing */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  }
+}
+
+#bathrooms-show {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#bathrooms-show .card{
+  margin: auto;
+  background-color: white;
+  color: #4A6F16;
+}
+
+#user-profile .card{
+  margin: auto;
+  background-color: white;
+  color: #4A6F16;
+}
+
+@media screen and (max-width: 1024px) {
+  #user-profile h1 {
+    width: 90%;
+    margin: auto;
+    font-size: 1.5em;
+  }
 }

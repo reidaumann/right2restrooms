@@ -1,13 +1,114 @@
-<p style="color: green"><%= notice %></p>
-<div id="bathrooms">
-  <% @bathrooms.each do |bathroom| %>
-    <%= render bathroom %>
-    <p>
-      <%= link_to "Show this bathroom", bathroom %>
-    </p>
-  <% end %>
-</div>
+<head>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+</head>
+<body>
+  <%= render partial: "shared/navbar" %>
+  <p style="color: green"><%= notice %></p>
 
-<div id="add-link">
-<%= link_to "Add a new bathroom to our database", new_bathroom_path %>
-</div>
+  <div id="map">
+  </div>
+
+  <div id="search-form">
+    <%= form_tag bathrooms_path, method: :get do %>
+      <%= label :location, "Bathrooms near (address): " %>
+      <%= text_field_tag :location, params[:location] %>
+      <%= label :distance, "Distance (in miles): " %>
+      <%= text_field_tag :distance, params[:distance] %>
+
+      <div id="multi-select-dropdown">
+        <%= label :accessibility_options, "Accessibility Options: " %>
+        <%= select_tag :accessibility_options, options_for_select([['Accessible', 'accessible'], ['Gender Neutral', 'gender_neutral'], ['Family Accessible', 'family_accessible'], ['Free Access', 'purchase_required']], params[:accessibility_options]), multiple: true, id: 'accessibility-options' %>
+      </div>
+
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+  <script>
+    // Remove the need to hold down Shift key for multi-select
+    document.addEventListener('DOMContentLoaded', function() {
+      var selectElement = document.getElementById('accessibility-options');
+      selectElement.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+
+        var originalScrollTop = this.scrollTop;
+        e.target.selected = !e.target.selected;
+        this.focus();
+
+        if (e.target.selected) {
+          this.scrollTop = originalScrollTop;
+        }
+
+        return false;
+      });
+    });
+  </script>
+
+<script>
+  var api_key = '<%= ENV["MAPBOX_API_KEY"] %>';
+  mapboxgl.accessToken = api_key;
+  const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/light-v11', // style URL
+    center: [-87.623177, 41.881832], // starting position [lng, lat]
+    zoom: 9, // starting zoom
+  });
+
+  map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+      enableHighAccuracy: true
+    },
+    trackUserLocation: true,
+    showUserHeading: true
+  }));
+
+  const nav = new mapboxgl.NavigationControl({
+    visualizePitch: true
+  });
+
+  map.addControl(nav, 'bottom-right');
+
+  // Loop through bathroom coordinates
+  <% @bathrooms.each do |bathroom| %>
+    // Extract coordinates and address from bathroom object
+    var coordinate_set = [<%= bathroom.longitude %>, <%= bathroom.latitude %>];
+    var address = '<%= bathroom.address %>';
+    var googleMapsLink = 'https://maps.google.com/?q=' + encodeURIComponent(address);
+    var popupContent = '<h3>Address</h3><p><a href="' + googleMapsLink + '" target="_blank">' + address + '</a></p>';
+
+    // Create marker
+    var marker = new mapboxgl.Marker({
+      color: "#76B223",
+    }).setLngLat(coordinate_set)
+      .addTo(map);
+
+    // Create popup with address information
+    var popup = new mapboxgl.Popup()
+      .setHTML(popupContent);
+
+    // Add popup to marker
+    marker.setPopup(popup);
+  <% end %>
+</script>
+  <div id="btn-3">
+  <button class="button-3" onclick="location.href='<%= new_bathroom_path %>';">Or add a new bathroom to our database</button>
+  </div>
+  
+
+  <div id="bathrooms-list">
+    <h2>Bathrooms that fit your search:</h2>
+    <div class="cards">
+      <% @bathrooms.each do |bathroom| %>
+        <%= render bathroom %>
+
+        <br>
+      <% end %>
+    </div>
+  </div>
+
+  <div id='pagination'>
+    <%= paginate @bathrooms %>
+  </div>
+
+</body>

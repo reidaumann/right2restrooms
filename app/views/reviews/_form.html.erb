@@ -12,21 +12,19 @@
   <% end %>
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
   <div>
-    <%= form.label :bathroom_id, style: "display: block" %>
-    <%= form.text_field :bathroom_id %>
+    <%= form.hidden_field :bathroom_id, value: @bathroom.id %>
   </div>
 
   <div>
-    <%= form.label :body, style: "display: block" %>
+    <%= form.label :body, "If you used this restroom please add your review: ", style: "display: block" %>
     <%= form.text_area :body %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Add review", class: "button-3" %>
   </div>
 <% end %>

@@ -13,3 +13,83 @@
  *= require_tree .
  *= require_self
  */
+/* General css */
+ @import url('https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css');
+
+ html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#header{
+  height: 100px;
+  background-color: #76B223;
+  position: relative;
+  z-index: 2;
+}
+
+#header h1{
+  padding-left: 110px;
+  background-color: #76B223;
+  color: white;
+  padding-top: 10px;
+  display: block;
+  margin: auto;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+#header p{
+  background-color: #76B223;
+  color: white;
+  display: block;
+  margin: auto;
+  padding-top: 7px;
+  padding-left: 110px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+
+h3{
+  color: #76B223;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+}
+
+#header img{
+  float: left;
+  display: inline;
+  margin-top: 6px;
+  height: 75px;
+  width: 80px;
+}
+
+/*Cards CSS*/
+.cards{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.card{
+  width: 40%;
+  border-style: solid;
+  background-color: #3B5912;
+  color: white;
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease; /* adding a transition effect */
+}
+
+.card:hover {
+  background-color: #76B223;
+}
+
+.clickable:hover {
+  transform: scale(1.05); /* increasing the size slightly on hover */
+}

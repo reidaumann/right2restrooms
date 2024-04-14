@@ -1,10 +1,47 @@
+<%= render partial: "shared/navbar" %>
 <p style="color: green"><%= notice %></p>
+<div id="bathrooms-show">
+  <%= render @bathroom %>
 
-<%= render @bathroom %>
+  <button class="button-3" onclick="renderFavoritesForm()">Add this bathroom to Favorites</button>
 
-<div>
-  <%= link_to "Edit this bathroom", edit_bathroom_path(@bathroom) %> |
-  <%= link_to "Back to bathrooms", bathrooms_path %>
+  <script>
+    function renderFavoritesForm() {
+      // Get the current URL
+      var currentUrl = window.location.href;
 
-  <%= button_to "Destroy this bathroom", @bathroom, method: :delete %>
+      // Create a hidden form element
+      var form = document.createElement("form");
+      form.method = "get";
+      form.action = currentUrl; // Set the action URL to the current page URL
+
+      // Add necessary parameters
+      var favoriteInput = document.createElement("input");
+      favoriteInput.type = "hidden";
+      favoriteInput.name = "favorite[user_id]";
+      favoriteInput.value = "<%= current_user.id %>";
+      form.appendChild(favoriteInput);
+
+      // Submit the form
+      document.body.appendChild(form);
+      form.submit();
+    }
+  </script>
+
+
+  <h2>Reviews of this bathroom</h2>
+  <% @bathroom.reviews.each do |review| %>
+    <p>User <%=review.user_id%>'s comment: <%= review.body %></p>
+    <%= button_to "Delete review", review_path(review), method: :delete %>
+  <%end%>
+  <div>
+    <%= render "reviews/form", review: @bathroom.reviews.build %>
+  </div>
+
+  <div>
+    <%= link_to "Edit this bathroom's information", edit_bathroom_path(@bathroom) %> |
+    <%= link_to "Back to all bathrooms", bathrooms_path %> | 
+    <a href = "/bathrooms/new">Add another bathroom to our database</a>
+    <%= button_to "Delete this bathroom from the database", @bathroom, method: :delete, class: 'button-3' %>
+  </div>
 </div>

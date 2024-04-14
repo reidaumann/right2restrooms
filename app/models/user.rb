@@ -2,7 +2,7 @@
 #
 # Table name: users
 #
-#  id                     :integer          not null, primary key
+#  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  remember_created_at    :datetime
@@ -21,4 +21,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :favorites, class_name: "Favorite", foreign_key: "user_id", dependent: :destroy
+  has_many :favorite_bathrooms, through: :favorites, source: :bathroom
 end

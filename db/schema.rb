@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_12_185139) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_14_183355) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bathrooms", force: :cascade do |t|
     t.string "address"
     t.string "hours"
@@ -20,11 +23,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_12_185139) do
     t.boolean "purchase_required"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.integer "user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "bathroom_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "bathroom_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bathroom_id"], name: "index_favorites_on_bathroom_id"
@@ -32,8 +38,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_12_185139) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "bathroom_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "bathroom_id", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
