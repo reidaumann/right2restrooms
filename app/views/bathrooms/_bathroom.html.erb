@@ -1,41 +1,50 @@
-<div id="<%= dom_id bathroom %>">
-  <p id="address">
-    <strong>Address:</strong>
-    <%= bathroom.address %>
-  </p>
+<div class="card clickable" onclick="redirectToShow('<%= bathroom_path(bathroom) %>')">
+  <div id="<%= dom_id bathroom %>">
+    <div>
+      <p id="address" class="card-title">
+        <strong>Address:</strong>
+        <%= bathroom.address %>
+      </p>
+      <div class="card-text">
+        <p>
+          <strong>Hours:</strong>
+          <%= bathroom.hours %>
+        </p>
 
-  <p>
-    <strong>Hours:</strong>
-    <%= bathroom.hours %>
-  </p>
+        <%if bathroom.accessible == true %>
+          <p>
+            <strong>Wheelchair accessible</strong>
+          </p>
+        <% end %>
 
-  <%if bathroom.accessible == true %>
-    <p>
-      <strong>Wheelchair accessible</strong>
-    </p>
-  <% end %>
+        <%if bathroom.gender_neutral == true %>
+          <p>
+            <strong>Gender neutral bathrooms available</strong>
+          </p>
+        <% end %>
 
-  <%if bathroom.gender_neutral == true %>
-    <p>
-      <strong>Gender neutral bathrooms available</strong>
-    </p>
-  <% end %>
+        <%if bathroom.family_accessible == true %>
+          <p>
+            <strong>Family accessible</strong>
+          </p>
+        <% end %>
 
-  <%if bathroom.family_accessible == true %>
-    <p>
-      <strong>Family accessible</strong>
-    </p>
-  <% end %>
-
-  <%if bathroom.purchase_required == false %>
-    <p>
-      <strong>Free to use!</strong>
-    </p>
-  <%else%>
-    <p>
-      <strong>Purchase required</strong>
-    </p>
-  <% end %>
-
-
+        <%if bathroom.purchase_required == false %>
+          <p>
+            <strong>Free to use!</strong>
+          </p>
+        <%else%>
+          <p>
+            <strong>Purchase required</strong>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script>
+  function redirectToShow(url) {
+    window.location.href = url;
+  }
+</script>

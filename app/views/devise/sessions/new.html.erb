@@ -1,23 +1,103 @@
-<div id="devise-forms">
-
-  <h2>Log in</h2>
-
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <%= f.input :email,
-                  required: false,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" } %>
-      <%= f.input :password,
-                  required: false,
-                  input_html: { autocomplete: "current-password" } %>
-      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign-in/Sign-up Form</title>
+  <%= stylesheet_link_tag 'sign_in_up_form' %>
+</head>
+<body class="sign-in-page">
+  <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
+  <div class="container">
+    <div class="form-container sign-up-container">
+      <form action="<%= user_registration_path %>" method="post">
+        <h1>Create Account</h1>
+        <input type="email" name="user[email]" placeholder="Email" />
+        <input type="password" name="user[password]" placeholder="Password" />
+        <input type="password" name="user[password_confirmation]" placeholder="Confirm Password" />
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+    <div class="form-container sign-in-container">
+      <form action="<%= user_session_path %>" method="post">
+        <h1>Sign in</h1>
+        <input type="email" name="user[email]" placeholder="Email" />
+        <input type="password" name="user[password]" placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+      </form>
     </div>
-  <% end %>
+    <div class="mobile-toggle">
+      <!-- This button toggles between sign up and sign in -->
+      <button id="toggleSignUp">Sign Up</button>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome to Right2Restrooms!</h1>
+          <p>Sign up to find public restrooms nearby that fit YOUR accessbility needs!</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Welcome Back to Right2Restrooms!</h1>
+          <p>Login to find the closest public restroom that fits YOUR needs!</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <%= render "devise/shared/links" %>
-</div>
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const toggleSignUpButton = document.getElementById('toggleSignUp');
+    const container = document.querySelector('.container');
+    const signUpForm = document.querySelector('.sign-up-container');
+    const signInForm = document.querySelector('.sign-in-container');
+
+    // Function to check if the screen size is small (mobile)
+    function isSmallScreen() {
+      return window.innerWidth <= 768; // Adjust as needed
+    }
+
+    signUpButton.addEventListener('click', () => {
+      if (isSmallScreen()) {
+        signUpForm.style.display = "block";
+        signInForm.style.display = "none";
+        toggleSignUpButton.textContent = "Sign In";
+      } else {
+        container.classList.add("right-panel-active");
+      }
+    });
+
+    signInButton.addEventListener('click', () => {
+      if (isSmallScreen()) {
+        signUpForm.style.display = "none";
+        signInForm.style.display = "block";
+        toggleSignUpButton.textContent = "Sign Up";
+      } else {
+        container.classList.remove("right-panel-active");
+      }
+    });
+
+    toggleSignUpButton.addEventListener('click', () => {
+      if (isSmallScreen()) {
+        if (signUpForm.style.display === "none") {
+          signUpForm.style.display = "block";
+          signInForm.style.display = "none";
+          toggleSignUpButton.textContent = "Sign In";
+        } else {
+          signUpForm.style.display = "none";
+          signInForm.style.display = "block";
+          toggleSignUpButton.textContent = "Sign Up";
+        }
+      } else {
+        if (container.classList.contains("right-panel-active")) {
+          container.classList.remove("right-panel-active");
+        } else {
+          container.classList.add("right-panel-active");
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,12 +1,10 @@
-# Rails Template
+# Right2Restrooms
 
-This is a base Ruby on Rails repository configured for learning with Codespaces (and Gitpod).
+Right2Restrooms is a web application that allows users to find nearby public restrooms, filter for accessbility, and add new reviews and restrooms to our database.
 
 - Ruby version: `3.2.1`
 - Rails version: `7.0.4.3`
 
-
-We've added additional Ruby gems and other software that aren't automatically available in a new Rails app.
 
 ### Additional gems:
 
