@@ -64,16 +64,47 @@
   font-family: "Nunito", sans-serif;
   padding: 40px;
 }
-#new-bath-form{
+
+#new-bath-form {
   color: #3B5912;
   font-family: "Nunito", sans-serif;
   padding: 30px;
-  line-height: 2.2;
+  line-height: 1.6;
 }
 
-#new-bath-form input{
+#new-bath-form input[type="text"] {
+  border: 1px solid #ccc;
   border-radius: 5px;
+  padding: 10px;
   font-family: "Nunito", sans-serif;
+  width: calc(100% - 22px); /* Adjust width to accommodate checkbox */
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+#new-bath-form input[type="checkbox"] {
+  margin-top: 6px; /* Adjust margin to align checkboxes with text inputs */
+}
+
+#new-bath-form label {
+  margin-top: 6px;
+  display: inline-block; /* Ensure labels and inputs are in line */
+  vertical-align: top; /* Align labels with the top of their inputs */
+  margin-right: 10px; /* Add spacing between checkbox and label */
+}
+
+#new-bath-form input[type="submit"]:hover {
+  background-color: #4A6F16;
+}
+
+#new-bath-form div {
+  display: flex; /* Use flexbox for flexible layout */
+  align-items: center; /* Align items vertically */
+  margin-bottom: 10px; /* Add margin bottom for spacing between questions */
+}
+
+#new-bath-form input[type="checkbox"] {
+  margin-right: 10px; /* Add spacing between checkbox and label */
 }
 
 #new-header-and-link{
@@ -226,7 +257,7 @@ input[type="submit" i] {
   display: block;
   margin: 15px auto;
   font-family: "Nunito", sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   line-height: 20px;
   padding: 6px 16px;
