@@ -1,7 +1,7 @@
     <div id="header">
       <div class="topnav">
       <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
-      <h1>Right2Restrooms</h1>
+      <h1 id="logo">Right2Restrooms</h1>
       <p>Find the public bathroom YOU need!</p>
       <div id="myLinks">
           <% if user_signed_in? %>
@@ -28,4 +28,16 @@
             x.style.display = "block";
           }
       }
+    </script>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var logo = document.getElementById('logo');
+      var screenWidth = window.innerWidth;
+
+      if (screenWidth <= 1024) {
+        logo.textContent = 'R2R';
+      }
+    });
+
     </script>

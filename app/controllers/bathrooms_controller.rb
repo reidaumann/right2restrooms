@@ -1,18 +1,25 @@
 class BathroomsController < ApplicationController
   before_action :set_bathroom, only: %i[ show edit update destroy ]
 
-  # GET /bathrooms or /bathrooms.json
+  # GET /bathrooms 
   def index
     if params[:location].present?
-      @bathrooms = Bathroom.near(params[:location], params[:distance] || 15, order: :distance).page(params[:page])
-      @bathrooms = @bathrooms.where(accessible: true) if params[:accessible] == 'true'
-      @bathrooms = @bathrooms.where(gender_neutral: true) if params[:gender_neutral] == 'true'
-      @bathrooms = @bathrooms.where(family_accessible: true) if params[:family_accessible] == 'true'
-      @bathrooms = @bathrooms.where(purchase_required: false) if params[:purchase_required] == 'true'
+      distance = params[:distance].present? ? params[:distance].to_i : 10 # Set default distance to 10 if not provided
+      @bathrooms = Bathroom.near(params[:location], distance, order: :distance).page(params[:page])
+      
+      if params[:accessibility_options].present?
+        accessibility_options = params[:accessibility_options]
+        @bathrooms = @bathrooms.where(accessible: true) if accessibility_options.include?('accessible')
+        @bathrooms = @bathrooms.where(gender_neutral: true) if accessibility_options.include?('gender_neutral')
+        @bathrooms = @bathrooms.where(family_accessible: true) if accessibility_options.include?('family_accessible')
+        @bathrooms = @bathrooms.where(purchase_required: false) if accessibility_options.include?('purchase_required')
+      end
+      
     else
       @bathrooms = Bathroom.all.page(params[:page])
     end
   end
+  
 
   # GET /bathrooms/1 or /bathrooms/1.json
   def show

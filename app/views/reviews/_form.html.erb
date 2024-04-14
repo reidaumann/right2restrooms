@@ -20,11 +20,11 @@
   </div>
 
   <div>
-    <%= form.label :body, style: "display: block" %>
+    <%= form.label :body, "If you used this restroom please add your review: ", style: "display: block" %>
     <%= form.text_area :body %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Add review", class: "button-3" %>
   </div>
 <% end %>
