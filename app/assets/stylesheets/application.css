@@ -77,9 +77,19 @@ h3{
 .card{
   width: 40%;
   border-style: solid;
-  border-color: #3B5912;
+  background-color: #3B5912;
+  color: white;
   padding: 10px;
   margin-left: 20px;
   border-radius: 10px;
   margin-bottom: 30px;
+  transition: transform 0.3s ease; /* adding a transition effect */
+}
+
+.card:hover {
+  background-color: #76B223;
+}
+
+.clickable:hover {
+  transform: scale(1.05); /* increasing the size slightly on hover */
 }
