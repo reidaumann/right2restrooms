@@ -21,11 +21,18 @@ class FavoritesController < ApplicationController
 
   # POST /favorites or /favorites.json
   def create
-    @favorite = Favorite.new(favorite_params)
-    if @favorite.save
-      redirect_to bathroom_path(@favorite.bathroom_id), notice: "Bathroom favorited!"
+    @bathroom = Bathroom.find(params[:bathroom_id])
+    @favorite = current_user.favorites.find_by(bathroom_id: @bathroom.id)
+
+    if @favorite
+      redirect_to @bathroom, notice: "Bathroom is already favorited"
     else
-      redirect_to bathroom_path(@favorite.bathroom_id), alert: "Unable to favorite bathroom"
+      @favorite = current_user.favorites.build(bathroom_id: @bathroom.id)
+      if @favorite.save
+        redirect_to @bathroom, notice: "Bathroom favorited"
+      else
+        redirect_to @bathroom, alert: "Failed to favorite bathroom"
+      end
     end
   end
 
@@ -44,9 +51,14 @@ class FavoritesController < ApplicationController
 
   # DELETE /favorites/1 or /favorites/1.json
   def destroy
-    @favorite = Favorite.find(params[:id])
-    @favorite.destroy
-    redirect_to bathroom_path(@favorite.bathroom_id), notice: "Bathroom unfavorited!"
+    @favorite = current_user.favorites.find_by(id: params[:id])
+    if @favorite
+      bathroom = @favorite.bathroom
+      @favorite.destroy
+      redirect_to bathroom, notice: "Bathroom unfavorited"
+    else
+      redirect_to bathrooms_path, alert: "Favorite not found"
+    end
   end
 
   private

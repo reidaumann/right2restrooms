@@ -3,30 +3,7 @@
 <div id="bathrooms-show">
   <%= render @bathroom %>
 
-  <button class="button-3" onclick="renderFavoritesForm()">Add this bathroom to Favorites</button>
-
-  <script>
-    function renderFavoritesForm() {
-      // Get the current URL
-      var currentUrl = window.location.href;
-
-      // Create a hidden form element
-      var form = document.createElement("form");
-      form.method = "get";
-      form.action = currentUrl; // Set the action URL to the current page URL
-
-      // Add necessary parameters
-      var favoriteInput = document.createElement("input");
-      favoriteInput.type = "hidden";
-      favoriteInput.name = "favorite[user_id]";
-      favoriteInput.value = "<%= current_user.id %>";
-      form.appendChild(favoriteInput);
-
-      // Submit the form
-      document.body.appendChild(form);
-      form.submit();
-    }
-  </script>
+  <%= render "favorites/form" %>
 
 
   <h2>Reviews of this bathroom</h2>
