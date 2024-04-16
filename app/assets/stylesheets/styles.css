@@ -257,10 +257,11 @@ input[type="submit" i] {
   display: block;
   margin: 15px auto;
   font-family: "Nunito", sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 20px;
-  padding: 6px 16px;
+  padding: 8px 10px; /* Adjusted padding */
+  min-width: 180px; /* Adjusted min-width */
   position: relative;
   text-align: center;
   text-decoration: none;
