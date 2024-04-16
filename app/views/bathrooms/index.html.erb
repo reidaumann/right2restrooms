@@ -26,7 +26,7 @@
   </div>
 
   <script>
-  //Javascript for selecting multiple accessibility options on the search form without holding shift
+    // Remove the need to hold down Shift key for multi-select
     document.addEventListener('DOMContentLoaded', function() {
       var selectElement = document.getElementById('accessibility-options');
       selectElement.addEventListener('mousedown', function(e) {
@@ -49,10 +49,10 @@
   var api_key = '<%= ENV["MAPBOX_API_KEY"] %>';
   mapboxgl.accessToken = api_key;
   const map = new mapboxgl.Map({
-    container: 'map', 
-    style: 'mapbox://styles/mapbox/light-v11',
-    center: [-87.623177, 41.881832], 
-    zoom: 9,
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/light-v11', // style URL
+    center: [-87.623177, 41.881832], // starting position [lng, lat]
+    zoom: 9, // starting zoom
   });
 
   map.addControl(new mapboxgl.GeolocateControl({
@@ -69,20 +69,25 @@
 
   map.addControl(nav, 'bottom-right');
 
+  // Loop through bathroom coordinates
   <% @bathrooms.each do |bathroom| %>
+    // Extract coordinates and address from bathroom object
     var coordinate_set = [<%= bathroom.longitude %>, <%= bathroom.latitude %>];
     var address = '<%= bathroom.address %>';
     var googleMapsLink = 'https://maps.google.com/?q=' + encodeURIComponent(address);
     var popupContent = '<h3>Address</h3><p><a href="' + googleMapsLink + '" target="_blank">' + address + '</a></p>';
 
+    // Create marker
     var marker = new mapboxgl.Marker({
       color: "#76B223",
     }).setLngLat(coordinate_set)
       .addTo(map);
 
+    // Create popup with address information
     var popup = new mapboxgl.Popup()
       .setHTML(popupContent);
 
+    // Add popup to marker
     marker.setPopup(popup);
   <% end %>
 </script>
