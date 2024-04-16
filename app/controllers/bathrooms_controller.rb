@@ -1,28 +1,22 @@
 class BathroomsController < ApplicationController
   before_action :set_bathroom, only: %i[ show edit update destroy ]
 
-  # GET /bathrooms 
   def index
     @bathrooms = BathroomSearchService.new(params).search.page(params[:page])
   end
   
-
-  # GET /bathrooms/1 or /bathrooms/1.json
   def show
     @bathroom = Bathroom.find(params[:id])
     @favorite = current_user.favorites.find_by(bathroom_id: @bathroom.id)
   end
 
-  # GET /bathrooms/new
   def new
     @bathroom = Bathroom.new
   end
 
-  # GET /bathrooms/1/edit
   def edit
   end
 
-  # POST /bathrooms or /bathrooms.json
   def create
     @bathroom = Bathroom.new(bathroom_params)
 
@@ -37,7 +31,6 @@ class BathroomsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /bathrooms/1 or /bathrooms/1.json
   def update
     respond_to do |format|
       if @bathroom.update(bathroom_params)
@@ -50,7 +43,6 @@ class BathroomsController < ApplicationController
     end
   end
 
-  # DELETE /bathrooms/1 or /bathrooms/1.json
   def destroy
     @bathroom.destroy
 
