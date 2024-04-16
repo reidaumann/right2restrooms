@@ -22,15 +22,10 @@ class FavoritesController < ApplicationController
   # POST /favorites or /favorites.json
   def create
     @favorite = Favorite.new(favorite_params)
-
-    respond_to do |format|
-      if @favorite.save
-        format.html { redirect_to favorite_url(@favorite), notice: "Favorite was successfully created." }
-        format.json { render :show, status: :created, location: @favorite }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @favorite.errors, status: :unprocessable_entity }
-      end
+    if @favorite.save
+      redirect_to bathroom_path(@favorite.bathroom_id), notice: "Bathroom favorited!"
+    else
+      redirect_to bathroom_path(@favorite.bathroom_id), alert: "Unable to favorite bathroom"
     end
   end
 
@@ -49,12 +44,9 @@ class FavoritesController < ApplicationController
 
   # DELETE /favorites/1 or /favorites/1.json
   def destroy
+    @favorite = Favorite.find(params[:id])
     @favorite.destroy
-
-    respond_to do |format|
-      format.html { redirect_to favorites_url, notice: "Favorite was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to bathroom_path(@favorite.bathroom_id), notice: "Bathroom unfavorited!"
   end
 
   private
