@@ -3,21 +3,7 @@ class BathroomsController < ApplicationController
 
   # GET /bathrooms 
   def index
-    if params[:location].present?
-      distance = params[:distance].present? ? params[:distance].to_i : 10 # Set default distance to 10 if not provided
-      @bathrooms = Bathroom.near(params[:location], distance, order: :distance).page(params[:page])
-      
-      if params[:accessibility_options].present?
-        accessibility_options = params[:accessibility_options]
-        @bathrooms = @bathrooms.where(accessible: true) if accessibility_options.include?('accessible')
-        @bathrooms = @bathrooms.where(gender_neutral: true) if accessibility_options.include?('gender_neutral')
-        @bathrooms = @bathrooms.where(family_accessible: true) if accessibility_options.include?('family_accessible')
-        @bathrooms = @bathrooms.where(purchase_required: false) if accessibility_options.include?('purchase_required')
-      end
-      
-    else
-      @bathrooms = Bathroom.all.page(params[:page])
-    end
+    @bathrooms = BathroomSearchService.new(params).search.page(params[:page])
   end
   
 
@@ -75,12 +61,10 @@ class BathroomsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_bathroom
       @bathroom = Bathroom.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def bathroom_params
       params.require(:bathroom).permit(:address, :hours, :accessible, :gender_neutral, :family_accessible, :purchase_required)
     end
