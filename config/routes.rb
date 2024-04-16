@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
   
   resources :bathrooms
-  resources :favorites
+  resources :bathrooms do
+    resources :favorites, only: [:create, :destroy]
+  end
   resources :reviews
   # root "articles#index"
 end

@@ -3,11 +3,17 @@ class BathroomsController < ApplicationController
 
   # GET /bathrooms or /bathrooms.json
   def index
-    @bathrooms=Bathroom.all
+    if params[:location].present?
+      @bathrooms = Bathroom.near(params[:location], params[:distance] || 15, order: :distance)
+    else
+      @bathrooms = Bathroom.all
+    end
   end
 
   # GET /bathrooms/1 or /bathrooms/1.json
   def show
+    @bathroom = Bathroom.find(params[:id])
+    @favorite = Favorite.find_by(user_id: current_user.id, bathroom_id: @bathroom.id)
   end
 
   # GET /bathrooms/new

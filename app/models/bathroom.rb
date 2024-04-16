@@ -18,4 +18,8 @@
 class Bathroom < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
+
+  has_many :favorites, class_name: "Favorite", foreign_key: "bathroom_id", dependent: :destroy
+  has_many :favorited_by_users, through: :favorites, source: :user
+  has_many :reviews
 end
