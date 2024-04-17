@@ -186,7 +186,7 @@
 
 .sign-in-page .overlay {
   background: #76B223;
-  background: -webkit-linear-gradient(to right, #4A6F16, #000000);
+  background: -webkit-linear-gradient(top right, #4A6F16, #000000);
   background: linear-gradient(to right, #000000, #4A6F16);
   background-repeat: no-repeat;
   background-size: cover;
