@@ -18,37 +18,46 @@
     <section id="hero" class="landing-section">
       <h2>Welcome to Right2Restrooms!</h2>
       <p>We help you locate your nearest public restrooms in Chicago. We are an inclusive community, you can search for bathrooms that are gender-neutral, wheelchair accessible, family-friendly, and free to use!</p>
-      <a href="/users/sign_int" class="btn">Join us</a>
+      <a href="/users/sign_in" class="btn">Join us</a>
     </section>
 
     <section id="features" class="landing-section">
       <div class="container">
-        <h2>Features</h2>
-        <p>Search for your nearest restrooms that fit your needs</p>
-        <p>Add reviews to share information with your fellow users</p>
-        <div class="video-gallery">
-          <video width="560" height="315" controls>
-            <source src="app/assets/images/Demo1.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="video">
+        <h2>Getting Started</h2>
+        <div class="feature-content">
+          <div class="feature-text">
+            <p>Search for the nearest restrooms that fit your needs</p>
+          </div>
+          <div class="feature-video">
+            <video controls>
+              <source src="<%= asset_path('Demo1.mp4') %>" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <br>
+        <div class="feature-content">
+          <div class="feature-text">
+            <p>See more information and reviews about each bathroom and leave informational reviews for your fellow community members</p>
+          </div>
+          <div class="feature-video">
+            <video controls>
+              <source src="<%= asset_path('Demo2.mp4') %>" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="landing-section">
-      <h2>About Us</h2>
-      <p>Introduce your team and your mission.</p>
-    </section>
-
     <section id="contact" class="landing-section">
       <h2>Contact Us</h2>
-      <p>Get in touch with us for any inquiries or support.</p>
+      <p>Email our founder at reidaumann@gmail.com with any questions or open an issue on our <a href="https://github.com/reidaumann/right2restrooms">Github Repository</a>! </p>
     </section>
 
     <footer id="landing-footer">
-      <p>&copy; 2024 Your App Name. All rights reserved.</p>
+      <p>Right2Restrooms</p>
+      <a href="https://github.com/reidaumann/right2restrooms">Github Repository</a>
     </footer>
   </div>
 </body>
