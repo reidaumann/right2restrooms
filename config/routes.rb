@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "bathrooms#index"
+  root "bathrooms#landing_page"
 
   devise_for :users
   get '/users/:id', to: 'users#show'

@@ -4,7 +4,7 @@ class BathroomsController < ApplicationController
   def index
     @bathrooms = BathroomSearchService.new(params).search.page(params[:page])
   end
-  
+
   def show
     @bathroom = Bathroom.find(params[:id])
     @favorite = current_user.favorites.find_by(bathroom_id: @bathroom.id)
