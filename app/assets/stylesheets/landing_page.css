@@ -51,7 +51,7 @@
 }
 
 #landing-header ul li a {
-  color: #fff;
+  color: black;
   text-decoration: none;
 }
 
@@ -62,7 +62,7 @@
 
 #landing-page #hero {
   padding: 60px 100px;
-  background-color: black;
+  background: linear-gradient(to right, #000000, #4A6F16);
   color: white;
 }
 
@@ -73,6 +73,7 @@
 }
 
 .feature-text {
+  color: #4A6F16;
   flex: 1;
   font-size: 1.5em;
   padding: 20px;
@@ -98,7 +99,7 @@
 
 #landing-page .btn {
   display: inline-block;
-  background: #333;
+  background: #76B223;
   color: #fff;
   padding: 10px 20px;
   text-decoration: none;
@@ -107,7 +108,7 @@
 }
 
 #landing-page footer {
-  background: #333;
+  background: linear-gradient(to right, #000000, #4A6F16);
   color: #fff;
   text-align: center;
   padding: 20px 0;
@@ -117,34 +118,34 @@
   color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #landing-page .container {
-    width: 90%;
-  }
-}
-
-@media (max-width: 600px) {
-  #landing-page #landing-header h1 {
-    margin-bottom: 20px;
+    width: 90%; /* Adjust container width for smaller screens */
   }
 
-  #landing-page nav ul {
-    float: none;
-    text-align: center;
-    margin-top: 20px;
+  #landing-header {
+    padding: 10px 0; /* Reduce padding for smaller screens */
   }
 
-  #landing-page nav ul li {
-    display: block;
-    margin: 10px 0;
+  #landing-header h1 {
+    margin-bottom: 20px; /* Add margin to the bottom for smaller screens */
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+
+  #landing-header img {
+    float: right;
+    width: 60px; 
+    margin-right: 20px;
+    /* Adjust the width for smaller screens */
+  }
+
+  #landing-header nav ul {
+    display: none; /* Hide navigation on mobile */
   }
 
   #landing-page .landing-section h2 {
-    font-size: 2em;
-  }
-
-  #landing-page .btn {
-    display: block;
-    margin: 20px auto;
+    text-align: center; /* Center text in hero section */
+    margin-top: 50px; /* Add margin to the top for spacing */
+    font-size: 24px;
   }
 }

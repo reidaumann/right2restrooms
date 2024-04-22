@@ -19,6 +19,7 @@ class BathroomsController < ApplicationController
 
   def create
     @bathroom = Bathroom.new(bathroom_params)
+    @bathroom.user_id = current_user.id
 
     respond_to do |format|
       if @bathroom.save
@@ -33,23 +34,34 @@ class BathroomsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @bathroom.update(bathroom_params)
-        format.html { redirect_to bathroom_url(@bathroom), notice: "Bathroom was successfully updated." }
-        format.json { render :show, status: :ok, location: @bathroom }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @bathroom.errors, status: :unprocessable_entity }
+      begin
+        authorize @bathroom
+        if @bathroom.update(bathroom_params)
+          format.html { redirect_to bathroom_url(@bathroom), notice: "Bathroom was successfully updated." }
+          format.json { render :show, status: :ok, location: @bathroom }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+          format.json { render json: @bathroom.errors, status: :unprocessable_entity }
+        end
+      rescue Pundit::NotAuthorizedError
+        format.html { redirect_to bathroom_url(@bathroom), alert: "You are not authorized to perform this action." }
+        format.json { render json: { error: "You are not authorized to perform this action." }, status: :unauthorized }
       end
     end
   end
 
   def destroy
+    @bathroom = Bathroom.find(params[:id])
+    authorize @bathroom
+    
     @bathroom.destroy
-
+  
     respond_to do |format|
       format.html { redirect_to bathrooms_url, notice: "Bathroom was successfully destroyed." }
       format.json { head :no_content }
     end
+  rescue Pundit::NotAuthorizedError
+    redirect_to bathroom_url(@bathroom), alert: "You are not authorized to perform this action."
   end
 
   private

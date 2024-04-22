@@ -19,6 +19,12 @@
       </div>
     </div>
 
+    <% flash.each do |key, value| %>
+      <div class="alert alert-danger">
+        <%= value %>
+      </div>
+    <% end %>
+
     <script>
       function myFunction() {
         var x = document.getElementById("myLinks");
