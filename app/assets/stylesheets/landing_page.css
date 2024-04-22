@@ -10,8 +10,12 @@
 }
 
 #contact{
-  background: #76B223;
-  color: black;
+  background: linear-gradient(to right, #000000, #4A6F16);;
+  color: white;
+}
+
+#contact a{
+  color: white;
 }
 
 #landing-page #landing-header {
@@ -108,14 +112,14 @@
 }
 
 #landing-page footer {
-  background: linear-gradient(to right, #000000, #4A6F16);
-  color: #fff;
+  background: #76B223;
+  color: black;
   text-align: center;
   padding: 20px 0;
 }
 
 #landing-page footer a{
-  color: white;
+  color: black;
 }
 
 @media (max-width: 1024px) {
@@ -148,4 +152,5 @@
     margin-top: 50px; /* Add margin to the top for spacing */
     font-size: 24px;
   }
+
 }
