@@ -17,36 +17,42 @@
 #landing-page #landing-header {
   background: #76B223;
   color: black;
-  padding: 20px 30px;
-}
-
-#landing-page #landing-header nav {
+  padding: 20px 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* horizontally center */
+  align-items: center; /* vertically center */
 }
 
-#landing-page #landing-header h1 {
+#landing-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; /* evenly space elements */
+  width: 100%; /* Ensure full width */
+}
+
+#landing-header h1 {
   margin: 0;
 }
 
-#landing-page #landing-header ul {
+#landing-header img {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px;
+  margin-right: 130px;
+}
+
+#landing-header ul {
   list-style: none;
+  margin: 0;
   padding: 0;
 }
 
-#landing-page #landing-header ul li {
-  display: inline-block;
-  margin-left: 20px;
+#landing-header ul li {
+  display: inline;
 }
 
-#landing-page #landing-header ul li a {
+#landing-header ul li a {
   color: #fff;
   text-decoration: none;
-}
-
-#landing-page #landing-header ul li:first-child {
-  margin-left: 0;
 }
 
 #landing-page .landing-section {
