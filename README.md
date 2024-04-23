@@ -2,6 +2,8 @@
 
 Right2Restrooms is a web application that allows users to find nearby public restrooms, filter for accessbility, and add new reviews and restrooms to our database.
 
+I am currently working on authorizations and adding a rating system.
+
 - Ruby version: `3.2.1`
 - Rails version: `7.0.4.3`
 
@@ -46,11 +48,6 @@ Right2Restrooms is a web application that allows users to find nearby public res
 - Redis
 - Yarn
 
-### VS Code extensions:
-- aliariff.vscode-erb-beautify
-- mbessey.vscode-rufo
-- vortizhe.simple-ruby-erb
-=======
 ## Contributing
 If you want to contribute please open an issue ticket and I will try to respond as quickly as possible! 
 
@@ -69,6 +66,7 @@ If you want to contribute please open an issue ticket and I will try to respond 
   - family_accessible
   - purchase_required
   - updated_at
+  - user_id
 - Reviews
   - id
   - user_id
