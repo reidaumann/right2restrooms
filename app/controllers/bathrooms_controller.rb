@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BathroomsController < ApplicationController
   before_action :set_bathroom, only: %i[show edit update destroy]
 

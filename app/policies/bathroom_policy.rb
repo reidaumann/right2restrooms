@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BathroomPolicy < ApplicationPolicy
   def initialize(user, bathroom)
     @user = user

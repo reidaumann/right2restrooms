@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ActionDispatch
   class ExceptionWrapper
     def framework_trace

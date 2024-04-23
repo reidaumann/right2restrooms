@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'webdrivers/chromedriver'
 
 Capybara.register_driver :headless_chrome do |app|

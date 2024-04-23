@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if Object.const_defined?('RailsDb')
   RailsDb.setup do |config|
     # # enabled or not

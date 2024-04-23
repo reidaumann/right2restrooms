@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :slurp do
   desc 'Import library bathrooms from CSV'
   task bathrooms: :environment do
