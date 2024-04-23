@@ -1,1 +1,1 @@
-json.array! @bathrooms, partial: "bathrooms/bathroom", as: :bathroom
+json.array! @bathrooms, partial: 'bathrooms/bathroom', as: :bathroom

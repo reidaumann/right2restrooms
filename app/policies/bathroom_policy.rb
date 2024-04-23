@@ -12,4 +12,3 @@ class BathroomPolicy < ApplicationPolicy
     update?
   end
 end
-

@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
-
-  root "bathrooms#landing_page"
+  root 'bathrooms#landing_page'
 
   devise_for :users
   get '/users/:id', to: 'users#show'
-  
+
   resources :bathrooms
   resources :bathrooms do
-    resources :favorites, only: [:create, :destroy]
+    resources :favorites, only: %i[create destroy]
   end
-  resources :reviews,  only: [:create, :destroy]
+  resources :reviews, only: %i[create destroy]
 end

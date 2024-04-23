@@ -22,6 +22,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :favorites, class_name: "Favorite", foreign_key: "user_id", dependent: :destroy
+  has_many :favorites, class_name: 'Favorite', foreign_key: 'user_id', dependent: :destroy
   has_many :favorite_bathrooms, through: :favorites, source: :bathroom
 end
