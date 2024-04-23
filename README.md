@@ -49,7 +49,7 @@ I am currently working on authorizations and adding a rating system.
 - Yarn
 
 ## Contributing
-If you want to contribute please open an issue ticket and I will try to respond as quickly as possible! You can also create a branch and submit a pull request to be approved by me and connect this to your issue. Here's [information on cloning the repository] (https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
+If you want to contribute please open an issue ticket and I will try to respond as quickly as possible! You can also create a branch and submit a pull request to be approved by me and connect this to your issue. Here's  [information on cloning the repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
 
 ## Domain Model
 - User (Devise)
