@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -13,11 +11,11 @@ class ApplicationPolicy
   end
 
   def show?
-    false
+    true
   end
 
   def create?
-    false
+    user.present?
   end
 
   def new?
@@ -25,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    false
+    user.present? && user == record.user
   end
 
   def edit?
@@ -33,21 +31,19 @@ class ApplicationPolicy
   end
 
   def destroy?
-    false
+    user.present? && user == record.user
   end
 
   class Scope
+    attr_reader :user, :scope
+
     def initialize(user, scope)
       @user = user
       @scope = scope
     end
 
     def resolve
-      raise NotImplementedError, "You must define #resolve in #{self.class}"
+      scope.all
     end
-
-    private
-
-    attr_reader :user, :scope
   end
 end

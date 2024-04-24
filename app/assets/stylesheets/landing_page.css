@@ -1,0 +1,156 @@
+#landing-page {
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6;
+}
+
+#landing-page .container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+#contact{
+  background: linear-gradient(to right, #000000, #4A6F16);;
+  color: white;
+}
+
+#contact a{
+  color: white;
+}
+
+#landing-page #landing-header {
+  background: #76B223;
+  color: black;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between; /* horizontally center */
+  align-items: center; /* vertically center */
+}
+
+#landing-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly; /* evenly space elements */
+  width: 100%; /* Ensure full width */
+}
+
+#landing-header h1 {
+  margin: 0;
+}
+
+#landing-header img {
+  width: 60px; /* Adjust the width as needed */
+  height: 60px;
+  margin-right: 130px;
+}
+
+#landing-header ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#landing-header ul li {
+  display: inline;
+}
+
+#landing-header ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+#landing-page .landing-section {
+  padding: 40px 0;
+  text-align: center;
+}
+
+#landing-page #hero {
+  padding: 60px 100px;
+  background: linear-gradient(to right, #000000, #4A6F16);
+  color: white;
+}
+
+.feature-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px; /* Add some space between feature blocks */
+}
+
+.feature-text {
+  color: #4A6F16;
+  flex: 1;
+  font-size: 1.5em;
+  padding: 20px;
+  margin-top: 120px;
+}
+
+.feature-video {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Adjust the size of the video container as needed */
+.feature-video video {
+  max-width: 100%;
+  height: 600px;
+}
+
+#landing-page .landing-section h2 {
+  font-size: 3em;
+}
+
+#landing-page .btn {
+  display: inline-block;
+  background: #76B223;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#landing-page footer {
+  background: #76B223;
+  color: black;
+  text-align: center;
+  padding: 20px 0;
+}
+
+#landing-page footer a{
+  color: black;
+}
+
+@media (max-width: 1024px) {
+  #landing-page .container {
+    width: 90%; /* Adjust container width for smaller screens */
+  }
+
+  #landing-header {
+    padding: 10px 0; /* Reduce padding for smaller screens */
+  }
+
+  #landing-header h1 {
+    margin-bottom: 20px; /* Add margin to the bottom for smaller screens */
+    font-size: 20px; /* Adjust font size for smaller screens */
+  }
+
+  #landing-header img {
+    float: right;
+    width: 60px; 
+    margin-right: 20px;
+    /* Adjust the width for smaller screens */
+  }
+
+  #landing-header nav ul {
+    display: none; /* Hide navigation on mobile */
+  }
+
+  #landing-page .landing-section h2 {
+    text-align: center; /* Center text in hero section */
+    margin-top: 50px; /* Add margin to the top for spacing */
+    font-size: 24px;
+  }
+
+}

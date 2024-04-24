@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  root "bathrooms#index"
+  root "bathrooms#landing_page"
 
   devise_for :users
-  get '/users/:id', to: 'users#show'
+  get 'users/:id', to: 'users#show', as: 'dynamic_user'
   
   resources :bathrooms
   resources :bathrooms do

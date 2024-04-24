@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= stylesheet_link_tag 'landing_page' %>
+</head>
+
+<body>
+  <div id="landing-page" class="container">
+    <header id="landing-header">
+      <nav>
+        <h1>Right2Restrooms</h1>
+        <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
+        <ul>
+          <li><a href="/users/sign_in">Sign In</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <section id="hero" class="landing-section">
+      <h2>Welcome to Right2Restrooms!</h2>
+      <p>We help you locate your nearest public restrooms in Chicago. We are an inclusive community, you can search for bathrooms that are gender-neutral, wheelchair accessible, family-friendly, and free to use!</p>
+      <a href="/users/sign_in" class="btn">Join us</a>
+    </section>
+
+    <section id="features" class="landing-section">
+      <div class="container">
+        <h2>Getting Started</h2>
+        <div class="feature-content">
+          <div class="feature-text">
+            <p>Search for the nearest restrooms that fit your needs</p>
+          </div>
+          <div class="feature-video">
+            <video controls muted>
+              <source src="<%= asset_path('Demo1.mp4') %>" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        <br>
+        <div class="feature-content">
+          <div class="feature-text">
+            <p>See more information and reviews about each bathroom and leave informational reviews for your fellow community members</p>
+          </div>
+          <div class="feature-video">
+            <video controls muted>
+              <source src="<%= asset_path('Demo2.mp4') %>" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="landing-section">
+      <h2>Contact Us</h2>
+      <p>Email our founder at reidaumann@gmail.com with any questions or open an issue on our <a href="https://github.com/reidaumann/right2restrooms">Github Repository</a>! </p>
+    </section>
+
+    <footer id="landing-footer">
+      <p>Right2Restrooms</p>
+      <a href="https://github.com/reidaumann/right2restrooms">Github Repository</a>
+    </footer>
+  </div>
+</body>
+</html>
