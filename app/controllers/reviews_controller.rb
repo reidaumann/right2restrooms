@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[ show edit update destroy ]
+  before_action :set_review, only: %i[show edit update destroy]
 
   # GET /reviews or /reviews.json
   def index
@@ -32,6 +32,7 @@ class ReviewsController < ApplicationController
 
   # PATCH/PUT /reviews/1 or /reviews/1.json
   def update
+    authorize @review
     respond_to do |format|
       if @review.update(review_params)
         format.html { redirect_to review_url(@review), notice: "Review was successfully updated." }
@@ -41,23 +42,34 @@ class ReviewsController < ApplicationController
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
+  rescue Pundit::NotAuthorizedError
+    respond_to do |format|
+      format.html { redirect_to bathroom_url(@review.bathroom), alert: "You are not authorized to perform this action." }
+      format.json { render json: { error: "You are not authorized to perform this action." }, status: :unauthorized }
+    end
   end
 
   # DELETE /reviews/1 or /reviews/1.json
   def destroy
+    authorize @review
     @review.destroy
-
     redirect_to bathroom_path(@review.bathroom_id), notice: "Review deleted!"
+  rescue Pundit::NotAuthorizedError
+    respond_to do |format|
+      format.html { redirect_to bathroom_url(@review.bathroom), alert: "You are not authorized to perform this action." }
+      format.json { render json: { error: "You are not authorized to perform this action." }, status: :unauthorized }
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_review
-      @review = Review.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def review_params
-      params.require(:review).permit(:user_id, :bathroom_id, :body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_review
+    @review = Review.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def review_params
+    params.require(:review).permit(:user_id, :bathroom_id, :body)
+  end
 end
