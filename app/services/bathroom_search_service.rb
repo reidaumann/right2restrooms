@@ -16,6 +16,7 @@ class BathroomSearchService
 
   private
 
+  # consider moving to scopes and using ransack for search https://activerecord-hackery.github.io/ransack/going-further/other-notes/#using-scopesclass-methods
   def apply_accessibility_filters(bathrooms)
     if @params[:accessibility_options].present?
       accessibility_options = @params[:accessibility_options]

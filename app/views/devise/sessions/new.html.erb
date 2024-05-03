@@ -1,9 +1,13 @@
+<%# no need to redefine <head> %>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign-in/Sign-up Form</title>
+  <%# sign_in_up_form gets imported when you link application.css in the head %>
   <%= stylesheet_link_tag 'sign_in_up_form' %>
 </head>
+
+<%# no need to redefine <body> %>
 <body class="sign-in-page">
   <img src="/assets/Right2RestroomsLogo.png" alt="person sitting on the letters R2R">
   <div class="container">
@@ -53,6 +57,8 @@
     const signUpForm = document.querySelector('.sign-up-container');
     const signInForm = document.querySelector('.sign-in-container');
 
+    // media queries is probably a better approach
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries
     // Function to check if the screen size is small (mobile)
     function isSmallScreen() {
       return window.innerWidth <= 768; // Adjust as needed

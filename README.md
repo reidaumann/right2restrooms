@@ -1,9 +1,10 @@
 # Right2Restrooms
-
+<!-- Good 1-liner -->
 Right2Restrooms is a web application that allows users to find nearby public restrooms, filter for accessbility, and add new reviews and restrooms to our database.
 
 I am currently working on authorizations and adding a rating system.
 
+<!-- you can remove the gem list and versions since it's in your Gemfile -->
 - Ruby version: `3.2.1`
 - Rails version: `7.0.4.3`
 
@@ -51,6 +52,7 @@ I am currently working on authorizations and adding a rating system.
 ## Contributing
 If you want to contribute please open an issue ticket and I will try to respond as quickly as possible! You can also create a branch and submit a pull request to be approved by me and connect this to your issue. Here's  [information on cloning the repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
 
+<!-- we can use ERD or schema for this since it may change in the future -->
 ## Domain Model
 - User (Devise)
   - id
@@ -78,6 +80,17 @@ If you want to contribute please open an issue ticket and I will try to respond 
   - user_id
   - bathroom_id
  
+<!-- duplicate -->
 ### Version Information
 Ruby version: `3.2.1`
 Rails version: `7.0.4.3`
+
+
+
+## Code Review Feedback
+- weird files in project root `6}` and `10,`
+- add setup instructions for a developer ramping onto this project (eg db setup, sample data, etc.)
+- good focused, concise controllers
+- good ids on html elements
+- seems like using a framework like bootstrap to start and then adding custom as needed would be an easier approach
+- please read this https://guides.rubyonrails.org/layouts_and_rendering.html#understanding-yield
