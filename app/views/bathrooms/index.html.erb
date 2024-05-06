@@ -1,13 +1,21 @@
+<%# you can use `content_for :head` to add this to head %>
+<%# as-is this is rendered in the <body> %>
+<%# https://guides.rubyonrails.org/layouts_and_rendering.html#using-the-content-for-method %>
+<%# this is also already defined in <head> %>
 <head>
   <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
   <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
 </head>
+
+<%# we only have 1 body %>
 <body>
+  <%# could we add this to application.html.erb so it appears everywhere? %>
   <%= render partial: "shared/navbar" %>
 
   <div id="map">
   </div>
 
+  <%# could be a _search partial  %>
   <div id="search-form">
     <%= form_tag bathrooms_path, method: :get do %>
       <%= label :location, "Bathrooms near (address): " %>
@@ -90,12 +98,16 @@
     marker.setPopup(popup);
   <% end %>
 </script>
+<%# usually good to have javascript at the bottom of view or in separate file %>
 
+
+  <%# indent  %>
   <div id="btn-3">
   <button class="button-3" onclick="location.href='<%= new_bathroom_path %>';">Or add a new bathroom to our database</button>
   </div>
   
 
+  <%# could be a partial %>
   <div id="bathrooms-list">
     <h2>Bathrooms that fit your search:</h2>
     <div class="cards">

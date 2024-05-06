@@ -34,6 +34,7 @@ class BathroomsController < ApplicationController
 
   def update
     respond_to do |format|
+      # nitpik, don't need the begin, can simply have rescue at end of method (and be consistent with destroy action)
       begin
         authorize @bathroom
         if @bathroom.update(bathroom_params)

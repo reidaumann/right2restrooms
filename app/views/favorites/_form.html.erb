@@ -1,12 +1,15 @@
+<%# could refactor to stay DRY %>
 <% if @favorite %>
   <%= form_with(model: @favorite, url: bathroom_favorite_path(@favorite.bathroom, @favorite), method: :delete, local: true) do |form| %>
     <%= form.hidden_field :bathroom_id, value: @bathroom.id %>
+    <%# more secure to set this on the controller using current_user %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.submit "Unfavorite this bathroom", class: "button-3" %>
   <% end %>
 <% else %>
   <%= form_with(model: @favorite || Favorite.new, url: bathroom_favorites_path(@bathroom), local: true) do |form| %>
     <%= form.hidden_field :bathroom_id, value: @bathroom.id %>
+    <%# more secure to set this on the controller using current_user %>
     <%= form.hidden_field :user_id, value: current_user.id %>
     <%= form.submit "Favorite this bathroom", class: "button-3" %>
   <% end %>
